@@ -87,6 +87,20 @@ The `eval_report.txt` and `eval_report.json` files are captured command output.
 The `results/journeys/` folder holds the five-journey conversation output and
 its score report.
 
+## Score the saved 588-case development runs
+
+Both commands read saved predictions and make no model calls:
+
+```bash
+python3 DNA_Digital_Security_Assistant_SimSet_v2.0.1/eval/evaluate.py --cases DNA_Digital_Security_Assistant_SimSet_v2.0.1/data/dev/cases.jsonl --submission results/dev-full/on/predictions.jsonl
+python3 DNA_Digital_Security_Assistant_SimSet_v2.0.1/eval/evaluate.py --cases DNA_Digital_Security_Assistant_SimSet_v2.0.1/data/dev/cases.jsonl --submission results/dev-full/off/predictions.jsonl
+```
+
+Each file covers all 588 cases. ON scores 489/588 and OFF scores 417/588 on
+the automatic safe-action check. These are single-turn development scores,
+not the multi-turn sample or an official test score. The settings, validation,
+flags and fallback cases are documented in `results/dev-full/README.md`.
+
 ## Generate predictions (paid)
 
 > [!WARNING]

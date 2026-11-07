@@ -1,0 +1,9 @@
+postflight 2026-11-07T23:37:42Z (after both modes and scoring)
+worktree=/tmp/opencode/sinceai-dna-dev588
+HEAD=6b69f2855d16ea85a723f83288f1f8fc16c1055f
+app_tree=3e1e19177645df7641565116d1bdbbb171e1fee6
+toolkit_tree=4d2bb38172631fe09abf5e3cf0dc68faa3c25b4d
+tracked_status_lines=0
+pycache_dirs=0
+unit_tests=Ran 104 tests OK (offline, -B, PYTHONDONTWRITEBYTECODE=1)
+notes=run outputs written outside the worktree; only ignored app/.env symlink present

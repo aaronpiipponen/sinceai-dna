@@ -1,0 +1,13 @@
+preflight 2026-11-07T22:36:19Z
+worktree=/tmp/opencode/sinceai-dna-dev588
+HEAD=6b69f2855d16ea85a723f83288f1f8fc16c1055f
+app_tree=3e1e19177645df7641565116d1bdbbb171e1fee6
+toolkit_tree=4d2bb38172631fe09abf5e3cf0dc68faa3c25b4d
+tracked_status_lines=0
+input_sha256=6d7308162ed97ac520d300e853f17d48dce12146cb4e965d6b4ded62aadf852d
+input_bytes=2679634
+input_lines=588
+parsed_rows=588 unique_ids=588 duplicates=0
+families=49 languages=['en', 'fi', 'sv'] journeys=['breach_notice', 'clicked_link', 'smb_incident', 'suspicious_call', 'suspicious_message']
+unit_tests=Ran 104 tests OK (offline, -B, PYTHONDONTWRITEBYTECODE=1)
+env_symlink=app/.env -> private/app/.env (git-ignored)

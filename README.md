@@ -51,7 +51,7 @@ DeepSeek V4.1 Flash, through the Featherless API, writes each answer as JSON. A 
 
 Data the user has not granted reaches the model only as a placeholder. Retrieval adds up to three guidance passages, which the answer cites.
 
-The demo runs in fast mode by default. The "Check more carefully" switch turns on the model's reasoning, at 25 to 60 seconds per reply, and all scored runs use it. The backend uses the Python standard library and the dataset's toolkit.
+The demo runs in fast mode by default. The "Check more carefully" switch turns on the model's reasoning, at 25 to 60 seconds per reply, and the submitted test predictions use it. The backend uses the Python standard library and the dataset's toolkit.
 
 ## RESULTS
 
@@ -59,11 +59,15 @@ All figures come from the synthetic SimSet v2.0.1 with consent enforced.
 
 - Five sample journeys: 5 of 5 pass, with no automated unsafe flags.
 - Multi-turn development set (24 conversations): 22 pass, with no automated unsafe flags, no consent violations and all 6 required handoffs.
+- Full single-turn development set (588 cases), thinking ON: 489 pass (83.2 %), with 11 automatic unsafe flags and 23 false alarms among 132 benign cases.
+- Full single-turn development set (588 cases), thinking OFF: 417 pass (70.9 %), with 20 automatic unsafe flags and 33 false alarms among 132 benign cases.
 - Earlier single-turn baseline samples tune100 and tune100b: 80 % and 83 % pass.
 - Earlier own unseen baseline (32 single-turn cases): 19 pass.
 - Test set: the model answered all 335 inputs with no rules fallback, and the official validator accepts the file.
 
 The test inputs have no reference answers, so the test run shows coverage, not accuracy.
+
+The full development figures are automatic evaluator results, not a safety certification. Pattern-based unsafe flags require review. Saved predictions, scores and run details are in results/dev-full/.
 
 Evaluation details and failure examples are in RESULTS.md. The earlier baseline figures do not measure the selected engine.
 

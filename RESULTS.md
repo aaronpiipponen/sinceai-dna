@@ -6,7 +6,7 @@ These results describe the submitted assistant on synthetic development cases an
 
 The assistant combines a web conversation, operator-side synthetic signals, retrieved guidance and deterministic output checks. DeepSeek V4.1 Flash 1017 through Featherless generates structured answers. The shared engine validates answers for both the batch submission and the conversation adapter. A separate call writes an expert brief and its queue priority after an escalated answer.
 
-The recorded evaluations use temperature zero and thinking on. The expert brief writer uses thinking off. The demo's fast mode is a separate setting and is not the mode used for the submitted test predictions.
+The recorded evaluations use temperature zero. The full single-turn development benchmark compares thinking on and off. The submitted test predictions and recorded multi-turn evaluations use thinking on. The expert brief writer uses thinking off. The demo's fast mode is a separate setting from the submitted test predictions.
 
 ## Safety boundaries
 
@@ -35,6 +35,42 @@ Every required deciding question is asked. Four actions match the reference exac
 The run, full replies and score are preserved in `results/journeys/`. These are automated checks. They are not a separate human comprehension or safety study.
 
 ## Development results
+
+### All 588 development cases
+
+The selected engine was run once per mode on every development case, with thinking on and with thinking off. These are single-turn answers, not 588 simulated conversations. Both runs use the same frozen source, model, input file, temperature zero and six workers. Caching is disabled. Each case contributes one prediction, including any rules fallback. No case was rerun to improve its result, and nothing was tuned from these measurements.
+
+Both prediction files pass the official schema and coverage validator: 588 unique known cases, zero missing, zero extra and zero duplicate IDs per mode. Shape and coverage validation are separate from the evaluator's quality metrics below.
+
+| Metric | Thinking ON | Thinking OFF |
+|---|---|---|
+| Safe-action pass | 489/588 (83.2%) | 417/588 (70.9%) |
+| Safe-action pass 95% confidence interval | 79.9% to 86.4% | 67.3% to 74.8% |
+| Automatic unsafe flags | 11/588 (1.9%) | 20/588 (3.4%) |
+| Benign false alarms | 23/132 (17.4%) | 33/132 (25.0%) |
+| Required handoffs given | 131/132 (99.2%) | 132/132 (100.0%) |
+| Extra handoffs | 144 | 139 |
+| Required deciding questions asked | 106/120 (88.3%) | 76/120 (63.3%) |
+| Required steps recognised | 827/960 (86.1%) | 787/960 (82.0%) |
+| Exact primary action | 438/588 (74.5%) | 360/588 (61.2%) |
+| Language match | 588/588 | 588/588 |
+| Automatic consent violations | 0 | 0 |
+| Consent-guard fallbacks | 4 | 2 |
+| HTTP, transport or JSON failures | 0 | 0 |
+| Mean recorded call latency | 27.16 s | 8.03 s |
+| Recorded provider cost | $1.137120 | $0.421381 |
+
+All 588 final traces in each run report the requested thinking mode. Neither run records a thinking-off retry or a truncated reply. Recorded wall-clock time is 2,685.6 seconds for ON and 790.8 seconds for OFF. Provider cost totals $1.558501 across both runs.
+
+The unsafe counts are unmodified pattern-detector flags, not manually confirmed harmful instructions. The weighted automatic proxy is 85.0 for ON and 78.3 for OFF. It covers the 80 automatically assessed points; implementation is judged separately by people.
+
+Four ON answers fall back after the consent guard rejects a possible ungranted fact: DSA-D-0046, DSA-D-0050, DSA-D-0144 and DSA-D-0572. OFF has two such fallbacks: DSA-D-0162 and DSA-D-0570. DSA-D-0144 is the single missed required handoff in the ON run. Every fallback remains in the scored file.
+
+The evaluation includes 492 app-tuning-family cases and 96 app-held-out-family cases. ON passes 412/492 and 77/96; OFF passes 350/492 and 67/96. These are development data, not evidence of accuracy on unseen real-world traffic or the organisers' hidden test answers.
+
+The complete predictions, traces, official scores, per-case failures, validation output, hashes and settings are in `results/dev-full/`. The source is frozen at commit `6b69f28`; the subsequent documentation and screenshot changes do not change its runtime code. No test predictions were regenerated for this benchmark.
+
+### Sampled multi-turn conversations
 
 The selected engine was evaluated on 24 development conversations. The set contains eight cases per language, 12 benign cases and 12 risky cases. It excludes the five showcase cases. The set is a sample of the 588 development cases, not a full-development score.
 
@@ -72,9 +108,11 @@ The files in `results/baselines/consent-v2/` describe an earlier engine, not the
 | tune100b | 100 | 83/100 | 13.0% | 100% | 0% |
 | Own unseen scenarios | 32 | 19/32 | 0% | 45.5% | 0% |
 
-The own set misses six required handoffs. These baseline measurements do not establish the selected engine's performance on those sets. A complete 588-case development run of the selected engine is not included.
+The own set misses six required handoffs. These earlier baseline measurements do not establish the selected engine's performance on those sets. The full development results above measure the selected engine separately.
 
 ## False alarms
+
+In the full single-turn development benchmark, ON treats 23 of 132 benign cases as incidents and OFF treats 33 of 132 as incidents. The runs also have 144 and 139 extra handoffs respectively. The official per-case files identify every case and retain its prediction; these counts are not removed from the headline score.
 
 The selected 24-case run has no benign false alarms. Its four extra handoffs are listed separately above. The five sample journeys also contain one extra handoff, DSA-D-0018. A correct primary action does not imply proportionate escalation.
 
@@ -96,7 +134,7 @@ No outside-team comprehension check has been recorded. The requirement to read t
 
 The assistant uses a shared authorisation boundary for prompts and deterministic processing. Ungranted optional values are masked or removed. The conversation adapter preserves a consent reply as a permission decision, not as an answer about what the customer did.
 
-The 24-case run reports no consent violations or fallbacks. Signal-use fields are model-reported and can be incomplete even when the data was authorised. The explicit grant, refusal and output-guard behaviour is also covered by the offline unit tests.
+The 24-case run reports no consent violations or fallbacks. Both full development runs also report zero automatic consent violations in their returned answers, while the guard replaces four ON and two OFF raw replies with rules fallbacks. These are separate measures. Signal-use fields are model-reported and can be incomplete even when the data was authorised. The explicit grant, refusal and output-guard behaviour is also covered by the offline unit tests.
 
 ## Packaging hypothesis for DNA
 
@@ -106,7 +144,7 @@ A security subscription add-on or an included feature in a service package are p
 
 ## Evaluation limits
 
-The automated evaluator uses phrase matching for required steps and unsafe claims. Its results are supporting evidence, not a safety certification. The five sample journeys and 24-case subset are small and do not estimate performance on live traffic.
+The automated evaluator uses phrase matching for required steps and unsafe claims. Its results are supporting evidence, not a safety certification. The five sample journeys and 24-case subset are small. The full 588-case benchmark is synthetic development data, including cases used during tuning. None of these sets estimates performance on live traffic. Each mode was measured once, without rerolls or manual score overrides.
 
 There are no reference answers for the 335 test inputs in the supplied package. The test file has 335 answers, zero fallbacks, zero recorded call errors and valid schema and case coverage. These checks establish a complete submission, not test accuracy.
 
@@ -115,6 +153,7 @@ There are no reference answers for the 335 test inputs in the supplied package. 
 - `test_predictions.jsonl`: the selected 335-case submission.
 - `results/submissions/candidate-013fde1/`: identical predictions, traces, validation output and generation provenance.
 - `results/dev-conversations/`: the 24-case multi-turn evaluation and inputs.
+- `results/dev-full/`: both complete 588-case single-turn runs, official automatic scores, failures and provenance.
 - `results/journeys/`: the five sample conversations and their score.
 - `results/baselines/consent-v2/`: earlier baseline predictions and metadata.
 - `app/README.md`: setup, execution and validation instructions.

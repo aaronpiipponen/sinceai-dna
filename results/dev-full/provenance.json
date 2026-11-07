@@ -1,0 +1,50 @@
+{
+  "evaluation": "authorised final fixed-engine dev-588 evaluation; automatic results for public repo",
+  "source": {
+    "worktree": "/tmp/opencode/sinceai-dna-dev588",
+    "git_head": "6b69f2855d16ea85a723f83288f1f8fc16c1055f",
+    "app_tree": "3e1e19177645df7641565116d1bdbbb171e1fee6",
+    "toolkit_tree": "4d2bb38172631fe09abf5e3cf0dc68faa3c25b4d",
+    "tracked_status_lines_before_and_after": 0,
+    "note": "detached HEAD; only ignored app/.env symlink and ignored caches present"
+  },
+  "input": {
+    "path": "DNA_Digital_Security_Assistant_SimSet_v2.0.1/data/dev/cases.jsonl",
+    "sha256": "6d7308162ed97ac520d300e853f17d48dce12146cb4e965d6b4ded62aadf852d",
+    "bytes": 2679634,
+    "rows": 588,
+    "unique_case_ids": 588,
+    "duplicate_case_ids": 0
+  },
+  "model": {
+    "requested": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+    "temperature": 0,
+    "thinking": {
+      "on": "on",
+      "off": "off"
+    },
+    "workers": 6,
+    "retries": 2,
+    "cache": "disabled (--no-cache)"
+  },
+  "commands": {
+    "on": "python3 -B app/batch.py --inputs DNA_Digital_Security_Assistant_SimSet_v2.0.1/data/dev/cases.jsonl --out /tmp/opencode/sinceai-dna-dev588-results/on/predictions.jsonl --trace /tmp/opencode/sinceai-dna-dev588-results/on/trace.jsonl --workers 6 --model deepseek-ai/DeepSeek-V4.1-Flash-1017 --temperature 0 --thinking on --no-cache",
+    "off": "python3 -B app/batch.py --inputs DNA_Digital_Security_Assistant_SimSet_v2.0.1/data/dev/cases.jsonl --out /tmp/opencode/sinceai-dna-dev588-results/off/predictions.jsonl --trace /tmp/opencode/sinceai-dna-dev588-results/off/trace.jsonl --workers 6 --model deepseek-ai/DeepSeek-V4.1-Flash-1017 --temperature 0 --thinking off --no-cache",
+    "validate": "python3 -B tools/validate.py --submission <pred> --cases data/dev/cases.jsonl (from the SimSet directory, explicit dev cases)",
+    "evaluate_json": "python3 -B eval/evaluate.py --cases data/dev/cases.jsonl --submission <pred> --json --failures 588",
+    "evaluate_text": "python3 -B eval/evaluate.py --cases data/dev/cases.jsonl --submission <pred> --failures 588"
+  },
+  "environment": {
+    "python": "3.14.3",
+    "platform": "Linux-5.15.0-203.146.5.1.el8uek.aarch64-aarch64-with-glibc2.28",
+    "offline_unit_tests": "Ran 104 tests, OK (python3 -B -m unittest discover -s app -t app, PYTHONDONTWRITEBYTECODE=1; no model calls)"
+  },
+  "scoring_note": "Official tools/validate.py and eval/evaluate.py outputs are authoritative. summary.json and per_case.jsonl are derived glue (dsakit.scoring.evaluate plus trace joins) for counts and usage; no manual flag overrides.",
+  "dates_utc": {
+    "preflight": "2026-11-07T22:36:19Z",
+    "on_start": "2026-11-07T22:36:21Z",
+    "on_end": "2026-11-07T23:21:07Z",
+    "off_start": "2026-11-07T23:21:13Z",
+    "off_end": "2026-11-07T23:34:25Z"
+  }
+}
