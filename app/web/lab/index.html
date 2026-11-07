@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DNA lab — case workbench and runs</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23c8007a'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/shared/tokens.css">
+<link rel="stylesheet" href="/shared/thread.css">
+<link rel="stylesheet" href="/lab/lab.css">
+</head>
+<body>
+<div class="lab">
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="wordmark">DNA</span>
+      <span class="labmark">Lab</span>
+    </div>
+    <nav class="viewtabs" role="tablist" aria-label="Lab views">
+      <button id="tab-workbench" class="viewtab" role="tab" aria-selected="true"
+              aria-controls="view-workbench" data-view="workbench">Workbench</button>
+      <button id="tab-runs" class="viewtab" role="tab" aria-selected="false"
+              aria-controls="view-runs" data-view="runs">Runs</button>
+    </nav>
+    <div class="topmeta">
+      <span id="health" class="health">Checking model…</span>
+      <span class="locknote">Holdout families: gate only</span>
+    </div>
+  </header>
+
+  <main id="view-workbench" class="view view-workbench" role="tabpanel" aria-labelledby="tab-workbench">
+    <section class="picker panel" aria-label="Case picker">
+      <div class="picker-tabs" role="tablist" aria-label="Case source">
+        <button class="picker-tab" role="tab" aria-selected="false" data-picker="samples">Samples</button>
+        <button class="picker-tab" role="tab" aria-selected="true" data-picker="dev">Dev</button>
+        <button class="picker-tab" role="tab" aria-selected="false" data-picker="free">Free</button>
+      </div>
+
+      <div id="picker-dev" class="picker-body">
+        <label class="search">
+          <svg class="icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+            <circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.7"></circle>
+            <path d="M12.8 12.8 17 17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path>
+          </svg>
+          <input id="dev-q" type="search" placeholder="Search case id" autocomplete="off" aria-label="Search case id">
+        </label>
+        <div class="filters">
+          <label class="field">Journey
+            <select id="dev-journey">
+              <option value="">All</option>
+              <option value="suspicious_message">suspicious_message</option>
+              <option value="clicked_link">clicked_link</option>
+              <option value="suspicious_call">suspicious_call</option>
+              <option value="breach_notice">breach_notice</option>
+              <option value="smb_incident">smb_incident</option>
+            </select>
+          </label>
+          <label class="field">Language
+            <select id="dev-language">
+              <option value="">All</option>
+              <option value="fi">fi</option>
+              <option value="en">en</option>
+              <option value="sv">sv</option>
+            </select>
+          </label>
+          <label class="field">Benign
+            <select id="dev-benign">
+              <option value="">All</option>
+              <option value="1">Benign</option>
+              <option value="0">Risky</option>
+            </select>
+          </label>
+          <label class="field">Twin
+            <select id="dev-twin">
+              <option value="">All</option>
+              <option value="1">Twin</option>
+              <option value="0">Single</option>
+            </select>
+          </label>
+          <label class="field">Split
+            <select id="dev-split">
+              <option value="">All</option>
+              <option value="tune">Tune</option>
+              <option value="holdout" disabled>Holdout — gate only</option>
+            </select>
+          </label>
+        </div>
+        <p class="filter-note">Greyed holdout rows are locked: inspect them at gates only.</p>
+        <div id="dev-list" class="case-list" role="listbox" aria-label="Dev cases"></div>
+        <div class="pager">
+          <button id="dev-prev" class="lbtn small" type="button" disabled>Prev</button>
+          <span id="dev-count" class="meta">—</span>
+          <button id="dev-next" class="lbtn small" type="button" disabled>Next</button>
+        </div>
+      </div>
+
+      <div id="picker-samples" class="picker-body" hidden>
+        <p class="hint">The five sample journeys the demo uses.</p>
+        <div id="sample-list" class="case-list" role="listbox" aria-label="Sample cases"></div>
+      </div>
+
+      <div id="picker-free" class="picker-body" hidden>
+        <p class="hint">A free conversation has no ground truth, so the verdict bar stays empty.</p>
+        <label class="field">Language
+          <select id="free-language">
+            <option value="fi">fi</option>
+            <option value="en" selected>en</option>
+            <option value="sv">sv</option>
+          </select>
+        </label>
+        <label class="field">Audience
+          <select id="free-audience">
+            <option value="consumer">consumer</option>
+            <option value="small_business">small_business</option>
+          </select>
+        </label>
+        <label class="field">What the user writes
+          <textarea id="free-text" rows="6" placeholder="Paste the message the user is asking about…"></textarea>
+        </label>
+        <button id="free-start" class="lbtn primary" type="button">Start free conversation</button>
+      </div>
+    </section>
+
+    <section class="convo panel" aria-label="Conversation">
+      <div class="convo-head">
+        <div class="convo-title">
+          <h1 id="conv-case">No case selected</h1>
+          <div id="conv-meta" class="meta">Pick a case to start.</div>
+        </div>
+        <div id="conv-badges" class="badges"></div>
+      </div>
+
+      <div id="readonly-banner" class="readonly-banner" hidden>
+        <span class="badge read-only">Read-only</span>
+        <span id="readonly-label" class="meta"></span>
+        <button id="readonly-close" class="link" type="button">Close</button>
+      </div>
+
+      <div id="thread-scroll" class="thread-scroll">
+        <div id="thread" class="thread" aria-live="polite">
+          <div class="empty">Pick a case, or start a free conversation. Lab requests carry <span class="mono">?lab=1</span>.</div>
+        </div>
+      </div>
+
+      <div id="readonly-panel" class="readonly-panel" hidden></div>
+
+      <div id="lab-controls" class="lab-controls" aria-label="Lab conversation controls">
+        <button id="btn-simulate" class="lbtn" type="button" disabled>Simulated user answers</button>
+        <button id="btn-run" class="lbtn accent" type="button" disabled>Run to end</button>
+        <button id="btn-finish" class="lbtn" type="button" disabled>Finish now</button>
+        <button id="btn-restart" class="lbtn ghost" type="button" disabled>Restart</button>
+        <span id="busy-note" class="busy-note" role="status"></span>
+      </div>
+
+      <form id="composer" class="composer" autocomplete="off">
+        <input id="composer-input" type="text" placeholder="Follow-up message (sent with ?lab=1)"
+               aria-label="Follow-up message" disabled>
+        <button class="send" type="submit" aria-label="Send message" disabled>
+          <svg class="icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+            <path d="M3 10 17 3l-4.5 14-2.6-5.1L3 10Z" fill="none" stroke="currentColor"
+                  stroke-width="1.6" stroke-linejoin="round"></path>
+            <path d="m9.9 11.9 3.4-3.4" fill="none" stroke="currentColor" stroke-width="1.6"
+                  stroke-linecap="round"></path>
+          </svg>
+        </button>
+      </form>
+    </section>
+
+    <aside class="inspector panel" aria-label="Inspector">
+      <div class="inspector-head">
+        <h2>Inspector</h2>
+        <span id="inspector-meta" class="meta">No case</span>
+      </div>
+      <div id="inspector-scroll" class="inspector-scroll">
+        <div id="inspector" class="inspector-body">
+          <div class="empty">No case selected. Pick a case to start.</div>
+        </div>
+        <div id="review" class="review" hidden>
+          <div class="review-head">
+            <h3>Review</h3>
+            <span id="review-case" class="mono"></span>
+          </div>
+          <div class="seg" role="group" aria-label="Review verdict">
+            <button class="segbtn" type="button" data-verdict="ok" aria-pressed="false">OK</button>
+            <button class="segbtn" type="button" data-verdict="unsafe" aria-pressed="false">Unsafe</button>
+            <button class="segbtn" type="button" data-verdict="unclear" aria-pressed="false">Unclear</button>
+          </div>
+          <textarea id="review-note" rows="2" placeholder="Note: what did you see?" aria-label="Review note"></textarea>
+          <div class="review-actions">
+            <button id="review-save" class="lbtn primary" type="button" disabled>Save review</button>
+            <span id="review-status" class="meta"></span>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <main id="view-runs" class="view view-runs" role="tabpanel" aria-labelledby="tab-runs" hidden>
+    <aside class="runs-list panel" aria-label="Scored runs">
+      <div class="panel-head">
+        <h2>Scored runs</h2>
+        <span class="meta">results/runs</span>
+      </div>
+      <div id="runs-list" class="run-list"></div>
+      <p class="hint">Pre-scored files only. The server never scores on request.</p>
+    </aside>
+
+    <section class="runs-main panel" aria-label="Run detail">
+      <div id="run-head" class="run-head">
+        <div class="empty">Loading runs…</div>
+      </div>
+      <div id="run-content" class="run-content" hidden>
+        <div id="run-metrics" class="run-metrics"></div>
+        <div class="chart-wrap">
+          <div class="section-head">
+            <h3>Failure types</h3>
+            <button id="failure-clear" class="link" type="button" hidden>Clear filter</button>
+          </div>
+          <div id="failure-chart" class="chart"></div>
+        </div>
+        <div class="table-wrap">
+          <div class="section-head">
+            <h3>Cases</h3>
+            <span id="table-count" class="meta"></span>
+          </div>
+          <div class="table-scroll">
+            <table id="run-table" class="run-table">
+              <thead>
+                <tr>
+                  <th scope="col">Case</th>
+                  <th scope="col">Journey</th>
+                  <th scope="col">Lang</th>
+                  <th scope="col">Benign</th>
+                  <th scope="col">Twin</th>
+                  <th scope="col">Split</th>
+                  <th scope="col">Ours</th>
+                  <th scope="col">Expected</th>
+                  <th scope="col">Pass</th>
+                  <th scope="col">Failures</th>
+                </tr>
+              </thead>
+              <tbody id="run-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<script src="/shared/icons.js" defer></script>
+<script src="/shared/thread.js" defer></script>
+<script src="/lab/lab.js" defer></script>
+</body>
+</html>

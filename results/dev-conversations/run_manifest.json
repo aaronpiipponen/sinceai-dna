@@ -1,0 +1,150 @@
+{
+  "purpose": "24-case broader-DEV multi-turn conversation regression (candidate half)",
+  "status": "completed",
+  "created_utc": "2026-11-07T21:03:31Z",
+  "role": "candidate",
+  "runner": {
+    "file": "experiments/consent_fix_dev_eval/run_regression.py",
+    "sha256": "c5877edbba73864c6e4b5adcbab27ff0c5bfa88d96ccd96dbe4163b6ad3cf91d"
+  },
+  "python": "3.14.3",
+  "source": {
+    "role_worktree": "/tmp/opencode/gap-fixes",
+    "commit": "013fde1c5dc971f1674a0f88a1b878cf60bc1470",
+    "branch": "gap-fixes",
+    "app_tree": "b6d3fcd46155409a6f71d91ea791e286a5080a9e",
+    "app_sha256": {
+      "batch.py": "78c1dc01b3d77067e7c0a3bc479413bf3791d2fa92f0841e346d1e848fb09bcd",
+      "cache.py": "fc9ff2d65820cad0b30747ea5a8c51b7e3def0300b8b5dfdefba0cda7a9a8471",
+      "chat.py": "4b218dfc41befb1134fc134ea4e00ffb09f6c3acdbca56e60e8264ae1404f5ea",
+      "dna.py": "914a4cb88e38f7f860705a1f035b9034b2874171bac6c659fc1027c42ab6230a",
+      "gating.py": "775763154e4a8b59ef95700afd1e8d6ab504ce821d28bf23b9533e63d178d964",
+      "grounding.py": "b58e50e9437ddd818b3a2d68438d8679a7b650588f7360de871aeb2b1c6a779b",
+      "handoff.py": "df3a5a38df7cb39f15029bbdd5a401888564bdfb86d6e28c58d1ba6dae92a648",
+      "present.py": "b469a59237e23e1eabe1d9b44c0420049347b1f313cb7349568fefff6d9ac1bc",
+      "replay.py": "76d6e33347b40d4859029bcf658efdd05a7218f9cce46794863aa87838f1994c",
+      "score.py": "40788ac43f8c4068b1e958d0d9f51eefd310aaf24f02cf71a82fc1e422b9f51d",
+      "server.py": "4eadd56b1e2266368b43644ea35efc50c7df85766df79d162a5577ea1d480857",
+      "split.py": "1acaf49be4813e8485a71e87e6b534fa2b69ffe790e67cacdc1d93ae8e8a4113",
+      "test_chat.py": "7ff8fbc7f0966fa25292d85397f1f0e4ba0d1921e519d169c340072e2e289ba3",
+      "test_dna.py": "69a7315900ad4bb3438e08531741e04d68ba67f1e30f9af3791a9afa359fe409",
+      "test_handoff.py": "a3dca213e4627b6a5314812318ee869cfa4976d47ef968bd4df5577aa199c0d9",
+      "test_present.py": "e5f34a2cf99105b11199df66f7ca8ba251ea49234dc3c83a6669f75ea75c7c7a",
+      "test_server.py": "2bf196637f5be17377b3c1c190d6596956de8a1c9ce03a63aecf7cc564d99849",
+      "test_turns.py": "3a7ae3a734f6114a419d768fe51458c4ca2a0bdc9d59b00fcd6cd3696522a22e",
+      "turns.py": "6bf7c8c0943942f1bfab58199fabd60ccdd144b6442c4c3a5b32a5b554db817a"
+    },
+    "simset_tree": "4d2bb38172631fe09abf5e3cf0dc68faa3c25b4d",
+    "clean_paths": [
+      "app",
+      "DNA_Digital_Security_Assistant_SimSet_v2.0.1"
+    ]
+  },
+  "freeze": {
+    "file": "experiments/consent_fix_dev_eval/cases24.jsonl",
+    "sha256": "f45bde1e0bbba60b8e1ad65a8eb9a1f3a2deff044ea6bde33a20edf453256227",
+    "case_ids_sha256": "89cd84032e9cf6ab2ba51e09ab209a1cf7f49b4d1dc188da512c4fdd355d5c54",
+    "case_ids": [
+      "DSA-D-0009",
+      "DSA-D-0010",
+      "DSA-D-0061",
+      "DSA-D-0100",
+      "DSA-D-0147",
+      "DSA-D-0150",
+      "DSA-D-0159",
+      "DSA-D-0169",
+      "DSA-D-0175",
+      "DSA-D-0240",
+      "DSA-D-0255",
+      "DSA-D-0268",
+      "DSA-D-0282",
+      "DSA-D-0286",
+      "DSA-D-0290",
+      "DSA-D-0340",
+      "DSA-D-0358",
+      "DSA-D-0401",
+      "DSA-D-0422",
+      "DSA-D-0453",
+      "DSA-D-0458",
+      "DSA-D-0494",
+      "DSA-D-0508",
+      "DSA-D-0557"
+    ],
+    "order": "case_id ascending"
+  },
+  "settings": {
+    "model": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+    "temperature": 0,
+    "thinking_requested": "on",
+    "workers": 6,
+    "cache_dir": "cache/raw",
+    "conversations_per_case": 1,
+    "transport_retries": 0,
+    "protocol": "sim.run_conversation.run_one -> turns.step",
+    "max_turns": "case.simulation.max_assistant_turns"
+  },
+  "artifacts": {
+    "cases24.jsonl": "f45bde1e0bbba60b8e1ad65a8eb9a1f3a2deff044ea6bde33a20edf453256227",
+    "predictions.jsonl": "666b921bb00b100562a366c44d604742f2a38dfcdc345a211d25317e7386bb08",
+    "turns.jsonl": "ead4fe6c47fd9d4a7505d3f2cfe33d34e3fe2eac58f31a10fdd4aaf556d96aef",
+    "metrics.json": "948c7add6551205da0ec96ba598336bb822ec39d30f974e46eafe3392c3eb4f4",
+    "per_case_eval.json": "c331ded005728ba8b716c3df43d8ea2e225e4c00c6a48bc40cee1a25f85e17f2",
+    "failures.json": "7458a28b526be1333500a26c956f6f7378e2d0e526e2961f36653bf9460ecc20",
+    "eval_report.json": "86db12a014418e8bff14cfb051c32c3bf19f1c32afc6062c3bfd369f6d453fe7",
+    "eval_report.txt": "d86b7414f0646c5e4b060b2acc4c72990924fd398357ecc11e1909128ed7a056",
+    "validate.txt": "fd1c7e6fc3a01bf68dfcf14ffb8776e17cb3b50bfe337d33ab96d8b59191e02f",
+    "run.log": "26013c6f73eb5a891d420e8d9e72f698009e2b7865876cc41247f11edced893b"
+  },
+  "prompt_leak_check": {
+    "cases": 24,
+    "forbidden_hits": 0,
+    "case_id_hits": 0,
+    "reference_hits": 0,
+    "checked": [
+      "ground_truth",
+      "simulation",
+      "scenario_family",
+      "holdout_family",
+      "is_benign_control",
+      "case_id",
+      "reference_answer"
+    ]
+  },
+  "completed_utc": "2026-11-07T21:05:38Z",
+  "counts": {
+    "cases": 24,
+    "predictions": 24,
+    "turns": 24,
+    "logical_calls": 38,
+    "generation_attempts": 38,
+    "retry_attempts": 0,
+    "fallback_n": 0,
+    "harness_failures": 0,
+    "call_errors": 0
+  },
+  "trace_metadata": {
+    "requested_thinking": "on",
+    "logical_calls_ok": 38,
+    "thinking_modes": {
+      "on": 38,
+      "off": 0
+    },
+    "thinking_retry_cases": [],
+    "call_errors": [],
+    "cases_without_calls": []
+  },
+  "official": {
+    "eval_report.json": {
+      "returncode": 0,
+      "sha256": "86db12a014418e8bff14cfb051c32c3bf19f1c32afc6062c3bfd369f6d453fe7"
+    },
+    "eval_report.txt": {
+      "returncode": 0,
+      "sha256": "d86b7414f0646c5e4b060b2acc4c72990924fd398357ecc11e1909128ed7a056"
+    },
+    "validate.txt": {
+      "returncode": 0,
+      "sha256": "fd1c7e6fc3a01bf68dfcf14ffb8776e17cb3b50bfe337d33ab96d8b59191e02f"
+    }
+  }
+}

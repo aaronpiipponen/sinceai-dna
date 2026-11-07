@@ -1,0 +1,21 @@
+# Local secrets
+.env
+app/.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Evaluation outputs and submission artefacts
+*.jsonl.out
+
+# Raw model reply cache (app/cache.py)
+cache/
+
+# Regenerated deterministically by app/split.py (split.json is committed)
+data/splits/*.jsonl
+
+# Demo recordings and their verification artefacts (large)
+docs/videos/

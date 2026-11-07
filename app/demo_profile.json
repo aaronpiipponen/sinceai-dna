@@ -1,0 +1,164 @@
+{
+  "_note": "Fictional demo profiles for the free-text mode. Every person, company and contact detail is invented. Domains use .invalid and phone numbers are the all-zero range, which cannot belong to anyone. These are not real customers and carry no ground truth: the assistant sees them exactly as it sees a live identified user.",
+  "version": "2.0.1",
+  "profiles": {
+    "consumer": {
+      "display_name": "Aino Virtanen (fictional)",
+      "journey": "suspicious_message",
+      "entry_point": "consumer_app_chat",
+      "language": "fi",
+      "persona": {
+        "segment": "consumer_family",
+        "age_band": "30-49",
+        "tech_confidence": "medium",
+        "emotional_state": "worried",
+        "language": "fi",
+        "email": "aino.virtanen@example.invalid",
+        "phone": "+358 40 000 0000"
+      },
+      "signals": {
+        "artifact": null,
+        "link_check": null,
+        "call_warning": null,
+        "subscription": {
+          "products": [
+            {"type": "mobile", "esim": true},
+            {"type": "home_broadband"},
+            {"type": "tv"}
+          ],
+          "recent_events": [
+            {"type": "invoice_issued", "days_ago": 12, "status": "paid", "channel": "e-invoice"},
+            {"type": "esim_activation", "days_ago": 118, "channel": "app", "authentication": "strong", "new_device": "known"},
+            {"type": "plan_change", "days_ago": 64, "channel": "app", "authentication": "strong", "from": "4G", "to": "5G"}
+          ],
+          "network_status": {"service": "normal"}
+        },
+        "device": {
+          "summary": {
+            "platform": "android",
+            "os_version": "Android 15",
+            "patch_status": "behind_30d",
+            "security_app": "active"
+          },
+          "recent_app_installs": [
+            {"name": "Verkkopankki", "source": "official_store", "days_ago": 9, "permissions": ["notifications"]},
+            {"name": "Karttasovellus", "source": "official_store", "days_ago": 4, "permissions": ["location"]}
+          ],
+          "security_findings": {
+            "unknown_profiles": [],
+            "remote_access_apps": [],
+            "accessibility_services": []
+          }
+        },
+        "operator_account": {
+          "recent_logins": [
+            {"days_ago": 1, "country": "FI", "device_known": true, "result": "success"},
+            {"days_ago": 6, "country": "FI", "device_known": true, "result": "success"},
+            {"days_ago": 19, "country": "FI", "device_known": true, "result": "success"}
+          ]
+        },
+        "credential_exposure": null,
+        "business": null
+      },
+      "signal_availability": {
+        "link_check": "not_applicable",
+        "call_warning": "not_applicable"
+      },
+      "consent": {
+        "requires_consent": [
+          "subscription.recent_events",
+          "subscription.network_status",
+          "device.recent_app_installs",
+          "operator_account.recent_logins"
+        ],
+        "pre_granted": []
+      }
+    },
+    "small_business": {
+      "display_name": "Pihlaja Design Oy (fictional)",
+      "journey": "smb_incident",
+      "entry_point": "business_portal_chat",
+      "language": "fi",
+      "persona": {
+        "segment": "micro_business_owner",
+        "age_band": "40-59",
+        "tech_confidence": "medium",
+        "emotional_state": "busy",
+        "language": "fi",
+        "email": "toimisto@pihlaja-design.example.invalid",
+        "phone": "+358 40 000 0001"
+      },
+      "signals": {
+        "artifact": null,
+        "link_check": null,
+        "call_warning": null,
+        "subscription": {
+          "products": [
+            {"type": "business_mobile", "count": 7},
+            {"type": "business_broadband"}
+          ],
+          "recent_events": [
+            {"type": "invoice_issued", "days_ago": 9, "status": "paid", "channel": "e-invoice"},
+            {"type": "plan_change", "days_ago": 87, "channel": "business_portal", "authentication": "strong", "from": "business_broadband_100", "to": "business_broadband_250"}
+          ],
+          "network_status": {"service": "normal"}
+        },
+        "device": {
+          "summary": {
+            "platform": "windows",
+            "os_version": "Windows 11 24H2",
+            "patch_status": "current",
+            "security_app": "active"
+          },
+          "recent_app_installs": [
+            {"name": "Microsoft Teams", "source": "official_store", "days_ago": 12, "permissions": ["camera", "microphone"]},
+            {"name": "PDF-lukija", "source": "official_store", "days_ago": 31, "permissions": ["files"]}
+          ],
+          "security_findings": {
+            "unknown_profiles": [],
+            "remote_access_apps": [],
+            "accessibility_services": []
+          }
+        },
+        "operator_account": {
+          "recent_logins": [
+            {"days_ago": 0, "country": "FI", "device_known": true, "result": "success"},
+            {"days_ago": 2, "country": "FI", "device_known": true, "result": "success"},
+            {"days_ago": 11, "country": "FI", "device_known": true, "result": "success"}
+          ]
+        },
+        "credential_exposure": null,
+        "business": {
+          "profile": {
+            "company": "Pihlaja Design Oy",
+            "business_id": "0000000-0",
+            "employees": 7,
+            "admins": 2,
+            "it_support": "partner",
+            "payment_approval": "two_person"
+          },
+          "staff_accounts": [
+            {"role": "owner", "status": "active", "last_active_days_ago": 0, "admin": true},
+            {"role": "admin", "status": "active", "last_active_days_ago": 0, "admin": true},
+            {"role": "employee", "status": "active", "last_active_days_ago": 1, "admin": false},
+            {"role": "employee", "status": "active", "last_active_days_ago": 3, "admin": false}
+          ]
+        }
+      },
+      "signal_availability": {
+        "link_check": "not_applicable",
+        "call_warning": "not_applicable"
+      },
+      "consent": {
+        "requires_consent": [
+          "subscription.recent_events",
+          "subscription.network_status",
+          "device.recent_app_installs",
+          "operator_account.recent_logins",
+          "business.staff_accounts"
+        ],
+        "pre_granted": []
+      }
+    }
+  }
+}

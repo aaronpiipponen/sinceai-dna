@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockup — Expert console: escalations</title>
+<style>
+:root {
+  --bg: #f4f5f7;
+  --surface: #ffffff;
+  --text: #14182b;
+  --muted: #5b6275;
+  --line: #e3e5ea;
+  --accent: #c8007a;
+  --accent-soft: #fbe6f2;
+  --rail: #14182b;
+  --rail-text: #c9cde0;
+  --radius: 14px;
+  --font: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --p5: #b91c1c;  --p5-soft: #fdecec;
+  --p4: #c2410c;  --p4-soft: #fff1e8;
+  --p3: #a16207;  --p3-soft: #fdf6e3;
+  --p2: #1d4ed8;  --p2-soft: #eef3fe;
+  --p1: #4b5563;  --p1-soft: #f1f2f4;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; font: 15px/1.45 var(--font); color: var(--text); background: var(--bg); }
+h1, h2, h3, p { margin-top: 0; }
+
+/* ---------- shell ---------- */
+.shell { display: grid; grid-template-columns: 208px 1fr; min-height: 100vh; }
+
+.rail { background: var(--rail); color: var(--rail-text); display: flex; flex-direction: column; padding: 18px 12px; position: sticky; top: 0; height: 100vh; }
+.brand { display: flex; align-items: center; gap: 10px; padding: 0 8px 20px; }
+.wordmark { font-weight: 800; letter-spacing: .5px; color: #fff; font-size: 20px; }
+.brand small { display: block; font-size: 11px; color: var(--rail-text); letter-spacing: .2px; }
+.rail nav { display: flex; flex-direction: column; gap: 2px; margin-top: 4px; }
+.navlink { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 10px; color: var(--rail-text); font-size: 14px; min-height: 40px; background: rgba(255,255,255,.1); }
+.navlink svg { flex: none; opacity: 1; }
+.navlink .n { margin-left: auto; font-size: 12px; background: var(--accent); color: #fff; border-radius: 999px; padding: 1px 7px; font-weight: 700; }
+.rail-note { padding: 14px 10px 0; font-size: 11.5px; line-height: 1.5; color: #8d94ad; }
+.rail-foot { margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 10px 8px 0; border-top: 1px solid rgba(255,255,255,.1); font-size: 12px; }
+.avatar { width: 30px; height: 30px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-weight: 700; font-size: 12px; }
+.rail-foot b { color: #fff; font-size: 13px; display: block; }
+
+.main { min-width: 0; display: flex; flex-direction: column; }
+.topbar { display: flex; align-items: center; gap: 12px; padding: 9px 20px; background: var(--surface); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 3; }
+.tb-brand { display: none; align-items: center; gap: 10px; }
+.tb-brand .wordmark { color: var(--accent); }
+.tb-side { margin-left: auto; }
+.status { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; white-space: nowrap; }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: #15803d; }
+
+.workspace { display: grid; grid-template-columns: 336px minmax(0, 1fr); flex: 1; min-height: 0; align-items: stretch; }
+
+/* ---------- escalation list ---------- */
+.list { border-right: 1px solid var(--line); background: var(--surface); min-width: 0; display: flex; flex-direction: column; }
+.list-head { padding: 24px 18px 12px; display: flex; align-items: baseline; gap: 10px; }
+.list-head h2 { font-size: 12.5px; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); margin: 0; }
+.sort { margin: 0 0 0 auto; font-size: 11.5px; color: #8d94ad; white-space: nowrap; }
+.cases { list-style: none; margin: 0; padding: 4px 8px 16px; }
+.case { display: grid; grid-template-columns: 40px 1fr; gap: 10px; padding: 16px 10px; border-radius: 10px; border: 1px solid transparent; }
+.case.sel { background: var(--accent-soft); border-color: #f4c7e2; }
+.pchip { align-self: start; display: grid; place-items: center; height: 26px; border-radius: 8px; font-size: 12px; font-weight: 800; color: var(--c); background: var(--soft); font-variant-numeric: tabular-nums; }
+.p5 { --c: var(--p5); --soft: var(--p5-soft); }
+.p4 { --c: var(--p4); --soft: var(--p4-soft); }
+.p3 { --c: var(--p3); --soft: var(--p3-soft); }
+.p2 { --c: var(--p2); --soft: var(--p2-soft); }
+.p1 { --c: var(--p1); --soft: var(--p1-soft); }
+.case .name { font-weight: 600; font-size: 14.5px; line-height: 1.3; display: flex; align-items: baseline; gap: 6px; }
+.case .name .lang { font-size: 10.5px; font-weight: 700; color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; background: var(--surface); }
+.case .time { font-size: 11.5px; line-height: 1.25; margin-top: 1px; color: var(--muted); }
+.case.sel .time { color: var(--accent); font-weight: 600; }
+
+/* ---------- detail ---------- */
+.detail { min-width: 0; padding: 32px 24px 24px; }
+.detail-top { display: flex; align-items: flex-start; gap: 14px; flex-wrap: wrap; margin-bottom: 22px; }
+.subject h1 { font-size: 26px; line-height: 1.2; margin: 0 0 5px; }
+.meta { color: var(--muted); font-size: 16px; }
+.head-chips { margin-left: auto; display: flex; gap: 8px; flex-wrap: wrap; }
+.chip { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 600; border-radius: 999px; padding: 6px 12px; border: 1px solid var(--line); background: var(--surface); color: var(--muted); white-space: nowrap; }
+.chip.prio { color: #fff; background: var(--p5); border-color: transparent; }
+.chip.assigned { background: var(--surface); }
+
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 30px; }
+.summary .block + .block { margin-top: 26px; padding-top: 26px; border-top: 1px solid var(--line); }
+.block h3 { font-size: 13.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); margin: 0 0 14px; }
+
+.cta { display: flex; align-items: center; justify-content: center; width: 100%; max-width: 560px; min-height: 64px; margin-top: 24px; border: 0; border-radius: 14px; background: var(--accent); color: #fff; font: inherit; font-size: 22px; font-weight: 700; letter-spacing: .1px; box-shadow: 0 6px 18px rgba(200,0,122,.18); }
+
+/* timeline */
+.timeline { list-style: none; margin: 0; padding: 0; }
+.timeline li { position: relative; padding: 0 0 18px 30px; font-size: 17px; line-height: 1.5; }
+.timeline li::before { content: ""; position: absolute; left: 4px; top: 8px; width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
+.timeline li::after { content: ""; position: absolute; left: 8px; top: 20px; bottom: 0; width: 1px; background: var(--line); }
+.timeline li:last-child { padding-bottom: 0; }
+.timeline li:last-child::after { display: none; }
+.timeline li.hot::before { background: var(--p5); box-shadow: 0 0 0 3px var(--p5-soft); }
+.timeline .t { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 14.5px; margin-right: 7px; }
+.timeline .quote { display: block; margin-top: 6px; padding: 9px 12px; background: var(--bg); border-radius: 8px; color: var(--muted); font-size: 16px; }
+
+/* checked rows */
+.checks { display: flex; flex-direction: column; gap: 15px; }
+.check { display: grid; grid-template-columns: 28px 1fr auto; gap: 12px; align-items: center; font-size: 17px; }
+.check .ico { width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center; }
+.ico.warn { background: var(--p3-soft); color: var(--p3); }
+.ico.bad { background: var(--p5-soft); color: var(--p5); }
+.ico.ok { background: #e8f6ee; color: #15803d; }
+.check .val { font-size: 13.5px; font-weight: 700; border-radius: 6px; padding: 3px 9px; white-space: nowrap; }
+.val.bad { background: var(--p5-soft); color: var(--p5); }
+.val.warn { background: var(--p3-soft); color: var(--p3); }
+.val.ok { background: #e8f6ee; color: #15803d; }
+
+@media (max-width: 1180px) {
+  .workspace { grid-template-columns: 300px minmax(0, 1fr); }
+}
+
+@media (max-width: 980px) {
+  .shell { grid-template-columns: 1fr; }
+  .rail { display: none; }
+  .tb-brand { display: flex; }
+  .workspace { grid-template-columns: 1fr; }
+  .list { position: static; max-height: none; border-right: 0; border-bottom: 1px solid var(--line); }
+  .cases { overflow: visible; }
+}
+
+@media (max-width: 800px) {
+  .topbar { padding: 8px 14px; }
+  .tb-brand small { display: none; }
+  .detail { padding: 16px 14px 40px; }
+  .subject h1 { font-size: 21px; }
+  .timeline li, .check { font-size: 16px; }
+  .timeline .quote { font-size: 15px; }
+  .head-chips { margin-left: 0; }
+}
+
+@media (max-width: 420px) {
+  .list-head { padding: 16px 14px 8px; }
+  .sort { display: none; }
+  .cases { padding: 4px 6px 14px; }
+  .case { grid-template-columns: 40px 1fr; }
+  .status { padding: 3px 8px; }
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- operator shell: one place to be, nothing else to click -->
+  <aside class="rail" aria-label="Expert console">
+    <div class="brand">
+      <span class="wordmark">DNA</span>
+      <small>Expert console</small>
+    </div>
+    <nav aria-label="Sections">
+      <div class="navlink" aria-current="page">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M4 13h4l2 3h4l2-3h4"/></svg>
+        <span>Inbox</span><span class="n">11</span>
+      </div>
+    </nav>
+    <p class="rail-note">Escalations that need a security expert.</p>
+    <div class="rail-foot">
+      <span class="avatar" aria-hidden="true">AV</span>
+      <div><b>Aino Virtanen</b>Security expert</div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div class="tb-brand">
+        <span class="wordmark">DNA</span>
+      </div>
+      <div class="tb-side">
+        <span class="status"><span class="dot" aria-hidden="true"></span> On duty</span>
+      </div>
+    </header>
+
+    <div class="workspace">
+
+      <!-- escalation list -->
+      <section class="list" aria-label="Escalated conversations">
+        <div class="list-head">
+          <h2>Escalated conversations</h2>
+          <p class="sort">Newest first</p>
+        </div>
+        <ul class="cases">
+          <li class="case sel" aria-current="true">
+            <span class="pchip p5" aria-label="Priority 5">P5</span>
+            <div>
+              <div class="name">Anna K. <span class="lang">FI</span></div>
+              <div class="time">2 min ago · unassigned</div>
+            </div>
+          </li>
+          <li class="case">
+            <span class="pchip p4" aria-label="Priority 4">P4</span>
+            <div>
+              <div class="name">Mikko L. <span class="lang">FI</span></div>
+              <div class="time">14 min ago · unassigned</div>
+            </div>
+          </li>
+          <li class="case">
+            <span class="pchip p3" aria-label="Priority 3">P3</span>
+            <div>
+              <div class="name">Sofia R. <span class="lang">SV</span></div>
+              <div class="time">1 h ago · assigned to you</div>
+            </div>
+          </li>
+          <li class="case">
+            <span class="pchip p3" aria-label="Priority 3">P3</span>
+            <div>
+              <div class="name">Liisa M. <span class="lang">FI</span></div>
+              <div class="time">2 h ago · unassigned</div>
+            </div>
+          </li>
+          <li class="case">
+            <span class="pchip p2" aria-label="Priority 2">P2</span>
+            <div>
+              <div class="name">Jonas B. <span class="lang">EN</span></div>
+              <div class="time">3 h ago · assigned to you</div>
+            </div>
+          </li>
+          <li class="case">
+            <span class="pchip p2" aria-label="Priority 2">P2</span>
+            <div>
+              <div class="name">Daniel K. <span class="lang">EN</span></div>
+              <div class="time">4 h ago · assigned to you</div>
+            </div>
+          </li>
+          <li class="case">
+            <span class="pchip p2" aria-label="Priority 2">P2</span>
+            <div>
+              <div class="name">Aada P. <span class="lang">FI</span></div>
+              <div class="time">5 h ago · unassigned</div>
+            </div>
+          </li>
+          <li class="case">
+            <span class="pchip p1" aria-label="Priority 1">P1</span>
+            <div>
+              <div class="name">Noah F. <span class="lang">SV</span></div>
+              <div class="time">6 h ago · assigned to you</div>
+            </div>
+          </li>
+          <li class="case">
+            <span class="pchip p1" aria-label="Priority 1">P1</span>
+            <div>
+              <div class="name">Elsa V. <span class="lang">FI</span></div>
+              <div class="time">7 h ago · assigned to you</div>
+            </div>
+          </li>
+          <li class="case">
+            <span class="pchip p1" aria-label="Priority 1">P1</span>
+            <div>
+              <div class="name">Emmi T. <span class="lang">FI</span></div>
+              <div class="time">Yesterday · assigned to you</div>
+            </div>
+          </li>
+          <li class="case">
+            <span class="pchip p1" aria-label="Priority 1">P1</span>
+            <div>
+              <div class="name">Hugo D. <span class="lang">EN</span></div>
+              <div class="time">Yesterday · assigned to you</div>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- one escalation in detail -->
+      <main class="detail">
+        <div class="detail-top">
+          <div class="subject">
+            <h1>Bank impersonation — Anna K.</h1>
+            <div class="meta">Personal customer · escalated 2 min ago</div>
+          </div>
+          <div class="head-chips">
+            <span class="chip prio">Priority 5 · critical</span>
+            <span class="chip assigned">Unassigned</span>
+          </div>
+        </div>
+
+        <section class="card summary" aria-label="Escalation summary">
+          <div class="block">
+            <h3>What happened</h3>
+            <ol class="timeline">
+              <li><span class="t">09:42</span>Customer forwarded an SMS claiming their account was locked.
+                <span class="quote">“Your account has been locked. Verify your details now.”</span>
+              </li>
+              <li>Customer typed their card number on the linked page.</li>
+              <li class="hot"><span class="t">09:47</span>Customer asked for a security expert.</li>
+            </ol>
+          </div>
+
+          <div class="block">
+            <h3>Signals checked</h3>
+            <div class="checks">
+              <div class="check">
+                <span class="ico warn" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3l9 17H3z"/><path d="M12 10v4M12 17h.01"/></svg>
+                </span>
+                <span>Link check — page created 4 days ago</span>
+                <span class="val warn">Suspicious</span>
+              </div>
+              <div class="check">
+                <span class="ico bad" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>
+                </span>
+                <span>Card details entered on the linked page</span>
+                <span class="val bad">Disclosed</span>
+              </div>
+              <div class="check">
+                <span class="ico ok" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>
+                </span>
+                <span>Recent sign-ins, last 7 days</span>
+                <span class="val ok">No unknown</span>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <button class="cta" type="button">Begin conversation</button>
+      </main>
+    </div>
+  </div>
+</div>
+</body>
+</html>

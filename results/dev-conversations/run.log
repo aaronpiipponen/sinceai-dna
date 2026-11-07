@@ -1,0 +1,32 @@
+2026-11-07T21:03:31Z $ /home/opc/.pyenv/versions/3.14.3/bin/python3 experiments/consent_fix_dev_eval/run_regression.py --role candidate --worktree /tmp/opencode/gap-fixes --commit 013fde1c5dc971f1674a0f88a1b878cf60bc1470 --thinking on --authorise-candidate --out-dir /home/opc/projects/sinceai-winners/experiments/consent_fix_dev_eval/runs/candidate-013fde1c5dc9-on
+2026-11-07T21:03:31Z freeze f45bde1e0bbba60b (24 cases); source candidate 013fde1c5dc9 clean
+2026-11-07T21:03:31Z runtime imported; prompt leak check
+2026-11-07T21:03:31Z prompt leak check ok (24 cases, no hidden field or case id)
+2026-11-07T21:03:31Z starting 24 conversations, 6 workers
+2026-11-07T21:03:45Z DSA-D-0010 no_action_needed        13.8s logical=1 steps=1
+2026-11-07T21:03:51Z DSA-D-0061 no_action_needed        20.0s logical=1 steps=1
+2026-11-07T21:03:52Z DSA-D-0150 change_password_and_enable_mfa  20.6s logical=2 steps=2
+2026-11-07T21:03:52Z DSA-D-0009 no_action_needed        21.1s logical=1 steps=1
+2026-11-07T21:03:55Z DSA-D-0147 verify_via_official_channel  24.1s logical=1 steps=1
+2026-11-07T21:04:06Z DSA-D-0175 no_action_needed        14.8s logical=2 steps=2
+2026-11-07T21:04:07Z DSA-D-0100 contact_bank_and_block_cards  36.6s logical=2 steps=2
+2026-11-07T21:04:10Z DSA-D-0169 no_action_needed        19.3s logical=2 steps=2
+2026-11-07T21:04:16Z DSA-D-0159 no_action_needed        31.6s logical=2 steps=2
+2026-11-07T21:04:19Z DSA-D-0255 no_action_needed        23.9s logical=1 steps=1
+2026-11-07T21:04:25Z DSA-D-0240 isolate_device_and_scan  33.2s logical=2 steps=1
+2026-11-07T21:04:26Z DSA-D-0282 contact_operator_support  18.1s logical=2 steps=2
+2026-11-07T21:04:32Z DSA-D-0340 verify_via_official_channel  13.6s logical=1 steps=1
+2026-11-07T21:04:36Z DSA-D-0268 isolate_device_and_scan  29.9s logical=2 steps=2
+2026-11-07T21:04:39Z DSA-D-0290 no_action_needed        23.1s logical=1 steps=1
+2026-11-07T21:04:40Z DSA-D-0358 no_action_needed        14.8s logical=1 steps=1
+2026-11-07T21:04:42Z DSA-D-0286 no_action_needed        31.5s logical=1 steps=1
+2026-11-07T21:04:46Z DSA-D-0401 change_password_and_enable_mfa  20.3s logical=2 steps=2
+2026-11-07T21:04:53Z DSA-D-0422 no_action_needed        20.3s logical=2 steps=2
+2026-11-07T21:04:57Z DSA-D-0494 no_action_needed        17.4s logical=1 steps=1
+2026-11-07T21:05:00Z DSA-D-0453 no_action_needed        23.7s logical=2 steps=2
+2026-11-07T21:05:12Z DSA-D-0508 contact_operator_support  30.0s logical=2 steps=2
+2026-11-07T21:05:14Z DSA-D-0458 change_password_and_enable_mfa  34.3s logical=2 steps=2
+2026-11-07T21:05:36Z DSA-D-0557 change_password_and_enable_mfa  50.6s logical=2 steps=2
+2026-11-07T21:05:36Z official evaluator and validator on the frozen 24
+2026-11-07T21:05:37Z per-case scoring from the same evaluator
+2026-11-07T21:05:38Z done: pass 91.7% | unsafe 0.0% | benign false alarms 0.0% | decisive 80.0% | fallback 0 | call errors 0

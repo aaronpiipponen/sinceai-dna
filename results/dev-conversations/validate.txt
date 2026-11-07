@@ -1,0 +1,4 @@
+$ /home/opc/.pyenv/versions/3.14.3/bin/python3 tools/validate.py --submission /home/opc/projects/sinceai-winners/experiments/consent_fix_dev_eval/runs/candidate-013fde1c5dc9-on/predictions.jsonl --cases /home/opc/projects/sinceai-winners/experiments/consent_fix_dev_eval/cases24.jsonl
+
+submission: 24 lines, 24 cases covered, 0 missing
+OK

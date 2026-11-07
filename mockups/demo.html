@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockup — Security assistant</title>
+<style>
+/* Design tokens: the builders implement app/web/demo with these. */
+:root {
+  --bg: #f4f5f7;
+  --surface: #ffffff;
+  --text: #14182b;
+  --muted: #5b6275;
+  --line: #e3e5ea;
+  --accent: #c8007a;        /* operator-pink accent */
+  --accent-soft: #fbe6f2;
+  --act-now: #c2410c;
+  --act-now-soft: #fff1e8;
+  --safe: #15803d;
+  --safe-soft: #e8f6ee;
+  --warn: #a16207;
+  --warn-soft: #fdf6e3;
+  --radius: 16px;
+  --font: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font: 16px/1.45 var(--font); color: var(--text); background: var(--bg); }
+
+/* ---------- app shell: mobile first ---------- */
+.app { min-height: 100vh; display: flex; flex-direction: column; }
+.appbar {
+  position: sticky; top: 0; z-index: 2;
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 16px; background: var(--surface); border-bottom: 1px solid var(--line);
+}
+.wordmark { font-weight: 800; letter-spacing: .5px; color: var(--accent); font-size: 20px; }
+.appbar h1 { font-size: 16px; margin: 0; font-weight: 600; }
+.proto { margin-left: auto; font-size: 11px; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 3px 8px; white-space: nowrap; }
+.lang { font-size: 13px; color: var(--muted); border: 0; background: none; font-weight: 600; }
+
+.layout { flex: 1; display: grid; grid-template-columns: 1fr; }
+.thread { padding: 16px 14px 120px; display: flex; flex-direction: column; gap: 12px; max-width: 720px; width: 100%; margin: 0 auto; }
+
+.msg { max-width: 86%; padding: 10px 14px; border-radius: 18px; }
+.msg.user { align-self: flex-end; background: var(--accent); color: #fff; border-bottom-right-radius: 6px; }
+.msg.bot { align-self: flex-start; background: var(--surface); border: 1px solid var(--line); border-bottom-left-radius: 6px; }
+.who { font-size: 12px; color: var(--muted); margin: 4px 4px -6px; }
+.who.right { align-self: flex-end; }
+
+/* forwarded item the user is asking about */
+.attachment { align-self: flex-end; width: 86%; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.att-head { display: flex; gap: 8px; align-items: center; padding: 10px 12px; font-size: 13px; color: var(--muted); border-bottom: 1px solid var(--line); }
+.att-head b { color: var(--text); }
+.att-body { padding: 10px 12px; font-size: 15px; }
+.att-body .link { color: #1d4ed8; text-decoration: underline; word-break: break-all; }
+.att-check { display: flex; gap: 6px; align-items: center; margin: 0 12px 12px; padding: 6px 10px; border-radius: 10px; font-size: 13px; background: var(--warn-soft); color: var(--warn); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; align-self: flex-start; }
+.chip { border: 1px solid var(--accent); color: var(--accent); background: var(--surface); border-radius: 999px; padding: 8px 14px; font: inherit; font-size: 15px; min-height: 44px; }
+
+/* consent card */
+.consent { align-self: flex-start; width: 92%; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; }
+.consent h3 { margin: 0 0 6px; font-size: 16px; display: flex; gap: 8px; align-items: center; }
+.consent p { margin: 0 0 12px; color: var(--muted); font-size: 15px; }
+.row { display: flex; gap: 8px; }
+.btn { flex: 1; min-height: 46px; border-radius: 12px; font: inherit; font-weight: 600; border: 1px solid var(--accent); }
+.btn.primary { background: var(--accent); color: #fff; }
+.btn.secondary { background: var(--surface); color: var(--accent); }
+.fine { font-size: 13px; color: var(--muted); margin-top: 8px; }
+.consent.done { padding: 10px 14px; font-size: 14px; color: var(--muted); }
+
+/* final answer card */
+.answer { align-self: stretch; background: var(--surface); border: 1px solid var(--line); border-left: 6px solid var(--act-now); border-radius: var(--radius); padding: 16px; }
+.urgency { display: inline-block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; color: var(--act-now); background: var(--act-now-soft); padding: 3px 8px; border-radius: 6px; }
+.answer h2 { font-size: 22px; line-height: 1.25; margin: 10px 0 6px; }
+.answer .why1 { margin: 0 0 12px; color: var(--muted); }
+.answer ol { margin: 0 0 14px; padding-left: 22px; }
+.answer li { margin: 6px 0; }
+.expert { width: 100%; min-height: 48px; border-radius: 12px; border: 0; background: var(--text); color: #fff; font: inherit; font-weight: 600; }
+details { margin-top: 12px; border-top: 1px solid var(--line); padding-top: 10px; }
+summary { cursor: pointer; font-weight: 600; color: var(--muted); list-style: none; }
+summary::after { content: " ›"; }
+details[open] summary::after { content: " ⌄"; }
+.why { font-size: 14px; color: var(--muted); }
+.why ul { padding-left: 18px; margin: 8px 0; }
+
+/* handoff summary */
+.handoff { align-self: stretch; background: var(--surface); border: 1px dashed var(--muted); border-radius: var(--radius); padding: 14px; font-size: 14px; }
+.handoff h3 { margin: 0 0 8px; font-size: 15px; }
+.handoff dl { display: grid; grid-template-columns: 110px 1fr; gap: 4px 10px; margin: 0; }
+.handoff dt { color: var(--muted); }
+.handoff dd { margin: 0; }
+
+.composer { position: fixed; left: 0; right: 0; bottom: 0; background: var(--surface); border-top: 1px solid var(--line); padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); }
+.composer-inner { display: flex; gap: 8px; max-width: 720px; margin: 0 auto; }
+.composer input { flex: 1; min-height: 46px; border: 1px solid var(--line); border-radius: 23px; padding: 0 16px; font: inherit; }
+.composer button { width: 46px; height: 46px; border-radius: 50%; border: 0; background: var(--accent); color: #fff; font-size: 20px; }
+
+/* desktop side panel: "What I can see" */
+.side { display: none; }
+
+@media (min-width: 1024px) {
+  .layout { grid-template-columns: minmax(0, 1fr) 340px; max-width: 1180px; margin: 0 auto; width: 100%; gap: 24px; padding: 0 24px; }
+  .thread { padding-top: 24px; }
+  .side { display: block; padding-top: 24px; }
+  .side .card { position: sticky; top: 84px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; font-size: 14px; }
+  .side h3 { margin: 0 0 10px; font-size: 15px; }
+  .side h4 { margin: 14px 0 6px; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: .4px; }
+  .side ul { margin: 0; padding-left: 18px; }
+  .pill { display: inline-block; font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--safe-soft); color: var(--safe); margin-right: 4px; }
+  .pill.no { background: #f1f2f4; color: var(--muted); }
+  .composer { left: 0; right: 0; }
+  .composer-inner { max-width: 1180px; padding-right: 364px; padding-left: 24px; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="appbar">
+    <span class="wordmark">DNA</span>
+    <h1>Security assistant</h1>
+    <span class="proto">Prototype · not official advice</span>
+    <button class="lang" aria-label="Language">EN ▾</button>
+  </header>
+
+  <div class="layout">
+    <main class="thread" aria-live="polite">
+      <div class="who right">You</div>
+      <div class="msg user">I got this text and opened the link. What should I do?</div>
+      <div class="attachment" aria-label="Forwarded message">
+        <div class="att-head">✉️ <span>SMS from <b>Lumipankki</b> · 09:42</span></div>
+        <div class="att-body">Your account has been locked. Verify your details now: <span class="link">lumipankki-verify.example/login</span></div>
+        <div class="att-check">⚠️ Link check: suspicious · site created 4 days ago</div>
+      </div>
+
+      <div class="who">Assistant</div>
+      <div class="msg bot">Thanks. One thing changes what you should do: did you type your card number or bank codes on that page?</div>
+      <div class="chips" role="group" aria-label="Quick replies">
+        <button class="chip">Yes, card details</button>
+        <button class="chip">No, I only looked</button>
+        <button class="chip">Not sure</button>
+      </div>
+
+      <div class="msg user">Yes, I typed my card number.</div>
+
+      <div class="who">Assistant</div>
+      <div class="consent" role="group" aria-label="Permission request">
+        <h3>🛡️ May I check your recent sign-ins?</h3>
+        <p>I'll look only at sign-ins to your account from the last 7 days, to see whether someone else got in. Nothing else.</p>
+        <div class="row">
+          <button class="btn primary">Allow</button>
+          <button class="btn secondary">Don't allow</button>
+        </div>
+        <div class="fine">You'll still get advice if you say no.</div>
+      </div>
+      <div class="consent done">✓ You allowed: recent sign-ins (last 7 days)</div>
+
+      <div class="who">Assistant</div>
+      <article class="answer" aria-label="What to do now">
+        <span class="urgency">Act now</span>
+        <h2>Block your card in your bank's app</h2>
+        <p class="why1">The page you typed your card number into is a scam page, so the card can be misused.</p>
+        <ol>
+          <li>Block the card in your bank's app, or call the bank's card-blocking line.</li>
+          <li>Don't reply to the message or open the link again.</li>
+          <li>Watch your account for payments you don't recognise and report them to the bank.</li>
+        </ol>
+        <button class="expert">Talk to a security expert</button>
+        <details>
+          <summary>Why this advice?</summary>
+          <div class="why">
+            <ul>
+              <li>You said you typed your card number on the page.</li>
+              <li>The link points to a site created 4 days ago that our link check marks suspicious.</li>
+              <li>No unknown sign-ins in the last 7 days, so your account itself looks safe.</li>
+            </ul>
+            Based on: “Card details typed into a fake page” (assistant guidance, not official advice).
+          </div>
+        </details>
+      </article>
+
+      <section class="handoff" aria-label="Handoff summary">
+        <h3>What the expert receives</h3>
+        <dl>
+          <dt>Situation</dt><dd>Bank-impersonation SMS; user typed card number on the linked page.</dd>
+          <dt>Checked</dt><dd>Link check (suspicious); recent sign-ins (none unknown).</dd>
+          <dt>Consent</dt><dd>Sign-ins: allowed. Nothing else used.</dd>
+          <dt>Advice given</dt><dd>Block card now; watch for payments.</dd>
+          <dt>Priority</dt><dd>Immediate</dd>
+        </dl>
+      </section>
+    </main>
+
+    <aside class="side" aria-label="What the assistant can see">
+      <div class="card">
+        <h3>What I can see</h3>
+        <h4>You shared</h4>
+        <ul><li>The SMS from “Lumipankki”</li></ul>
+        <h4>Checked automatically</h4>
+        <ul><li>Link check: suspicious, new site</li></ul>
+        <h4>Your permission</h4>
+        <div><span class="pill">✓ Recent sign-ins</span></div>
+        <div style="margin-top:6px"><span class="pill no">Not used: apps on your phone</span></div>
+        <h4>Not stored</h4>
+        <p style="margin:0;color:var(--muted)">Your card number is never asked for or saved.</p>
+      </div>
+    </aside>
+  </div>
+
+  <div class="composer">
+    <div class="composer-inner">
+      <input placeholder="Ask a follow-up, e.g. what if I already paid?" aria-label="Message">
+      <button aria-label="Send">↑</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

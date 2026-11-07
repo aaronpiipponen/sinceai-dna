@@ -1,0 +1,723 @@
+[
+ {
+  "docScrollW": 390,
+  "docClientW": 390,
+  "scrollH": 716,
+  "scrollClientH": 716,
+  "scrollTop": 0,
+  "composerTop": 777,
+  "lastBottom": 190,
+  "titleClipped": false,
+  "protoClipped": false,
+  "items": 1,
+  "itemTypes": [
+   "item item-bot enter"
+  ],
+  "dialogs": [],
+  "mains": {
+   ".appbar": [
+    {
+     "x": 0,
+     "y": 0,
+     "w": 390,
+     "h": 61,
+     "right": 390,
+     "bottom": 61
+    }
+   ],
+   ".start": [
+    {
+     "x": 0,
+     "y": 210,
+     "w": 390,
+     "h": 321,
+     "right": 390,
+     "bottom": 531
+    }
+   ],
+   "#help-card": [
+    {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0,
+     "right": 0,
+     "bottom": 0
+    }
+   ],
+   ".side-card": [
+    {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0,
+     "right": 0,
+     "bottom": 0
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0,
+     "right": 0,
+     "bottom": 0
+    }
+   ],
+   ".composer-wrap": [
+    {
+     "x": 0,
+     "y": 777,
+     "w": 390,
+     "h": 67,
+     "right": 390,
+     "bottom": 844
+    }
+   ],
+   "#thread": [
+    {
+     "x": 0,
+     "y": 61,
+     "w": 390,
+     "h": 149,
+     "right": 390,
+     "bottom": 210
+    }
+   ],
+   ".answer": [],
+   ".consent": [],
+   ".handoff": [],
+   ".expert-sent": []
+  },
+  "smallTargets": [],
+  "lang": "fi",
+  "fonts": {
+   "body": "Inter",
+   "#thread": "Inter",
+   ".composer": "Inter",
+   ".start": "Inter",
+   ".side-card, .side": "Inter"
+  },
+  "text": "DNA\nTietoturva-avustaja\nPrototyyppi · ei virallinen neuvo\nFI\nAvustaja\n\nHei! Kerro, mikä viestissä, puhelussa tai linkissä epäilyttää, niin sanon, mitä kannattaa tehdä seuraavaksi.\n\nHenkilö\nYritys\n\nESIMERKKEJÄ\n\nViesti pankista\nKlikkasin linkkiä\nSoitto ”asiakaspalvelusta”\nEi kenttää eSIM-viestin jälkeen\nToimittaja vaihtoi tilinumeron",
+  "name": "01_start_390",
+  "note": "",
+  "english_hints": [],
+  "overflow": false,
+  "covered": false,
+  "console": []
+ },
+ {
+  "docScrollW": 1440,
+  "docClientW": 1440,
+  "scrollH": 768,
+  "scrollClientH": 768,
+  "scrollTop": 0,
+  "composerTop": 833,
+  "lastBottom": 175,
+  "titleClipped": false,
+  "protoClipped": false,
+  "items": 1,
+  "itemTypes": [
+   "item item-bot enter"
+  ],
+  "dialogs": [],
+  "mains": {
+   ".appbar": [
+    {
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 65,
+     "right": 1440,
+     "bottom": 65
+    }
+   ],
+   ".start": [
+    {
+     "x": 178,
+     "y": 199,
+     "w": 720,
+     "h": 293,
+     "right": 898,
+     "bottom": 492
+    }
+   ],
+   "#help-card": [
+    {
+     "x": 946,
+     "y": 85,
+     "w": 340,
+     "h": 214,
+     "right": 1286,
+     "bottom": 299
+    }
+   ],
+   ".side-card": [
+    {
+     "x": 946,
+     "y": 85,
+     "w": 340,
+     "h": 214,
+     "right": 1286,
+     "bottom": 299
+    },
+    {
+     "x": 946,
+     "y": 315,
+     "w": 340,
+     "h": 80,
+     "right": 1286,
+     "bottom": 395
+    }
+   ],
+   ".composer-wrap": [
+    {
+     "x": 178,
+     "y": 833,
+     "w": 720,
+     "h": 67,
+     "right": 898,
+     "bottom": 900
+    }
+   ],
+   "#thread": [
+    {
+     "x": 178,
+     "y": 65,
+     "w": 720,
+     "h": 134,
+     "right": 898,
+     "bottom": 199
+    }
+   ],
+   ".answer": [],
+   ".consent": [],
+   ".handoff": [],
+   ".expert-sent": []
+  },
+  "smallTargets": [],
+  "lang": "fi",
+  "fonts": {
+   "body": "Inter",
+   "#thread": "Inter",
+   ".composer": "Inter",
+   ".start": "Inter",
+   ".side-card, .side": "Inter"
+  },
+  "text": "DNA\nTietoturva-avustaja\nPrototyyppi · ei virallinen neuvo\nFI\nAvustaja\n\nHei! Kerro, mikä viestissä, puhelussa tai linkissä epäilyttää, niin sanon, mitä kannattaa tehdä seuraavaksi.\n\nHenkilö\nYritys\n\nESIMERKKEJÄ\n\nViesti pankista\nKlikkasin linkkiä\nSoitto ”asiakaspalvelusta”\nEi kenttää eSIM-viestin jälkeen\nToimittaja vaihtoi tilinumeron\nMissä voin auttaa\nEpäilyttävät viestit\nAvaamasi linkit\nOudot puhelut\nHuolet tilistäsi tai liittymästäsi\n\nYrityksille: laskut, tilinumeromuutokset ja työntekijöiden tilit.\n\nMitä minä näen\n\nKun aloitat, näet tässä, mitä tietoja käytän.",
+  "name": "01_start_1440",
+  "note": "",
+  "english_hints": [],
+  "overflow": false,
+  "covered": false,
+  "console": []
+ },
+ {
+  "lang": "fi",
+  "fonts": {
+   "body": "Inter",
+   "#thread": "Inter",
+   ".composer": "Inter",
+   ".start": "Inter",
+   ".side-card, .side": "Inter"
+  },
+  "docScrollW": 390,
+  "docClientW": 390,
+  "scrollH": 716,
+  "scrollClientH": 716,
+  "scrollTop": 0,
+  "composerTop": 777,
+  "lastBottom": 711,
+  "titleClipped": false,
+  "protoClipped": false,
+  "items": 4,
+  "itemTypes": [
+   "item item-bot enter",
+   "item item-user enter",
+   "item item-user item-attachment enter",
+   "item item-bot enter"
+  ],
+  "dialogs": [],
+  "text": "DNA\nTietoturva-avustaja\nPrototyyppi · ei virallinen neuvo\nFI\nAvustaja\n\nHei! Kerro, mikä viestissä, puhelussa tai linkissä epäilyttää, niin sanon, mitä kannattaa tehdä seuraavaksi.\n\nSinä\n\nMitä tälle kannattaa tehdä?\n\nTekstiviesti lähettäjältä LUMIPANKKI · 17:25\n\nLumipankki: Tililläsi havaittiin epätavallista toimintaa ja verkkopankkisi on suljettu. Vahvista henkilöllisyytesi tänään: https://lumipankki-tunnistus.invalid/login\n\nLinkkitarkistus: epäilyttävä linkki · sivusto luotu 4 päivää sitten\nAvustaja\n\nSyötitkö viestin linkin avaamalle sivulle käyttäjätunnustasi tai salasanaasi?\n\nKyllä, kirjauduin sivulla\nEn kirjautunut\nEn ole varma",
+  "name": "02_bank_sms_fi_390",
+  "note": "",
+  "console": [],
+  "english_hints": [],
+  "overflow": false,
+  "covered": false
+ },
+ {
+  "lang": "fi",
+  "fonts": {
+   "body": "Inter",
+   "#thread": "Inter",
+   ".composer": "Inter",
+   ".start": "Inter",
+   ".side-card, .side": "Inter"
+  },
+  "docScrollW": 390,
+  "docClientW": 390,
+  "scrollH": 716,
+  "scrollClientH": 716,
+  "scrollTop": 0,
+  "composerTop": 777,
+  "lastBottom": 711,
+  "titleClipped": false,
+  "protoClipped": false,
+  "items": 4,
+  "itemTypes": [
+   "item item-bot",
+   "item item-user",
+   "item item-user item-attachment",
+   "item item-bot"
+  ],
+  "dialogs": [
+   "info-sheet"
+  ],
+  "text": "Avustaja\n\nHei! Kerro, mikä viestissä, puhelussa tai linkissä epäilyttää, niin sanon, mitä kannattaa tehdä seuraavaksi.\n\nSinä\n\nMitä tälle kannattaa tehdä?\n\nTekstiviesti lähettäjältä LUMIPANKKI · 17:25\n\nLumipankki: Tililläsi havaittiin epätavallista toimintaa ja verkkopankkisi on suljettu. Vahvista henkilöllisyytesi tänään: https://lumipankki-tunnistus.invalid/login\n\nLinkkitarkistus: epäilyttävä linkki · sivusto luotu 4 päivää sitten\nAvustaja\n\nSyötitkö viestin linkin avaamalle sivulle käyttäjätunnustasi tai salasanaasi?\n\nKyllä, syötin tunnukseni\nEn syöttänyt tunnuksia\nEn ole varma",
+  "name": "07_info_sheet_390",
+  "note": "",
+  "console": [],
+  "english_hints": [],
+  "overflow": false,
+  "covered": false
+ },
+ {
+  "docScrollW": 390,
+  "docClientW": 390,
+  "scrollH": 2032,
+  "scrollClientH": 2032,
+  "scrollTop": 0,
+  "composerTop": 2093,
+  "lastBottom": 2054,
+  "titleClipped": false,
+  "protoClipped": false,
+  "items": 8,
+  "itemTypes": [
+   "item item-bot enter",
+   "item item-user enter",
+   "item item-user item-attachment enter",
+   "item item-bot",
+   "item item-user enter",
+   "item item-receipt",
+   "item item-stretch",
+   "item item-stretch enter"
+  ],
+  "dialogs": [],
+  "lang": "fi",
+  "fonts": {
+   "body": "Inter",
+   "#thread": "Inter",
+   ".composer": "Inter",
+   ".start": "Inter",
+   ".side-card, .side": "Inter"
+  },
+  "text": "DNA\nTietoturva-avustaja\nPrototyyppi · ei virallinen neuvo\nFI\nAvustaja\n\nHei! Kerro, mikä viestissä, puhelussa tai linkissä epäilyttää, niin sanon, mitä kannattaa tehdä seuraavaksi.\n\nSinä\n\nNopea kysymys: Kirjautuminen Espanjasta Oma-tililleni? Onko joku murtautunut?\n\nSähköposti lähettäjältä noreply@operator.invalid · 17:19\n\nOma-tilillesi kirjauduttiin uudelta laitteelta (Espanja, Chrome/Windows) tänään klo 14.12. Jos se et ollut sinä, vaihda salasana Oma-palvelussa.\n\nAvustaja\n\nOlitko itse kirjautunut Oma-tiliisi Espanjasta tänään kello 14.12?\n\nSinä\n\nEn, en tehnyt sitä itse\n\nSallit: Viimeaikaiset kirjautumiset\nTOIMI HETI\nVaihda salasana ja ota käyttöön kaksivaiheinen tunnistautuminen\n\nTietojemme mukaan Oma-tilillesi kirjauduttiin tänään kello 14.12 Espanjasta uudella laitteella, etkä ollut se sinä.\n\nVaihda Oma-tilin salasana luotetulla laitteella.\nKirjaudu ulos kaikista muista istunnoista.\nTarkista tilin yhteystiedot ja viimeisimmät muutokset.\nOta yhteyttä turvatiimiin kirjautumisen selvittämiseksi.\n\nToimi heti. Älä mene tilille sähköpostin linkin kautta, vaan avaa Oma-palvelu itse kirjoittamalla osoite. Tarkista myös, ettei tilillesi ole lisätty uusia maksunsaajia. Jos et saa salasanaa vaihdettua tai tilillä näkyy muutoksia, joita et tehnyt, ota heti yhteyttä operaattorin turvatukeen. Säilytä viesti ja ota siitä kuvakaappaus todisteeksi.\n\nPyyntö lähetetty\n\nMiksi tämä neuvo?\nKerroit: \"En, en tehnyt sitä itse\"\nKatsoin luvallasi: viimeaikaiset kirjautumiset.\n\nPerustuu ohjeeseen: Kirjautuminen tuntemattomasta maasta tai laitteesta\n\nAvustajan ohje, ei virallinen neuvo.\n\nMitä asiantuntija saa\n(demo)\n\nTietoturva-asiantuntija\n\nTilanne\nTietovuoto- tai kaappausilmoitus. Nopea kysymys: Kirjautuminen Espanjasta Oma-tililleni? Onko joku murtautunut?\nTarkistettu\nViimeaikaiset kirjautumiset\nLupa\nMyönsit: Viimeaikaiset kirjautumiset.\nAntamani neuvo\nVaihda salasana ja ota käyttöön kaksivaiheinen tunnistautuminen. Vaihda Oma-tilin salasana luotetulla laitteella.\nKiireellisyys\nToimi heti\n\nTietoturva-asiantuntija ottaa sinuun yhteyttä sovelluksessa.",
+  "name": "04_answer_why_handoff_390",
+  "note": "390x2160 to fit the whole card set; fixture built from the recorded conversation; expert button after the request was sent",
+  "english_hints": [],
+  "overflow": false,
+  "covered": false,
+  "console": [],
+  "expert_sent": "Pyyntö lähetetty",
+  "expert_button_count": 0,
+  "handoff_visible": 1
+ },
+ {
+  "lang": "fi",
+  "fonts": {
+   "body": "Inter",
+   "#thread": "Inter",
+   ".composer": "Inter",
+   ".start": "Inter",
+   ".side-card, .side": "Inter"
+  },
+  "docScrollW": 390,
+  "docClientW": 390,
+  "scrollH": 942,
+  "scrollClientH": 716,
+  "scrollTop": 226,
+  "composerTop": 777,
+  "lastBottom": 757,
+  "titleClipped": false,
+  "protoClipped": false,
+  "items": 6,
+  "itemTypes": [
+   "item item-bot",
+   "item item-user",
+   "item item-user item-attachment",
+   "item item-bot",
+   "item item-user",
+   "item item-bot"
+  ],
+  "dialogs": [],
+  "text": "Avustaja\n\nHei! Kerro, mikä viestissä, puhelussa tai linkissä epäilyttää, niin sanon, mitä kannattaa tehdä seuraavaksi.\n\nSinä\n\nNopea kysymys: Kirjautuminen Espanjasta Oma-tililleni? Onko joku murtautunut?\n\nSähköposti lähettäjältä noreply@operator.invalid · 17:19\n\nOma-tilillesi kirjauduttiin uudelta laitteelta (Espanja, Chrome/Windows) tänään klo 14.12. Jos se et ollut sinä, vaihda salasana Oma-palvelussa.\n\nAvustaja\n\nOletko itse tai joku työntekijäsi kirjautunut Oma-tiliin Espanjasta, vai tuliko kirjautuminen sinulle täysin yllätyksenä?\n\nSinä\n\nTuli täysin yllätyksenä. En ole kirjautunut Espanjasta.\n\nAvustaja\nSaanko katsoa näitä tietoja?\n\nKatson operaattoritilisi kirjautumiset viimeisen 7 päivän ajalta, jotta näen, onko joku muu kirjautunut sisään.\n\nSalli\nÄlä salli\n\nSaat silti neuvon, vaikka kieltäytyisit.",
+  "name": "03_consent_card_390",
+  "note": "",
+  "console": [],
+  "english_hints": [],
+  "overflow": false,
+  "covered": false
+ },
+ {
+  "docScrollW": 390,
+  "docClientW": 390,
+  "scrollH": 1341,
+  "scrollClientH": 716,
+  "scrollTop": 625,
+  "composerTop": 777,
+  "lastBottom": 757,
+  "titleClipped": false,
+  "protoClipped": false,
+  "items": 7,
+  "itemTypes": [
+   "item item-bot",
+   "item item-user",
+   "item item-user item-attachment",
+   "item item-bot",
+   "item item-user",
+   "item item-receipt",
+   "item item-stretch"
+  ],
+  "dialogs": [],
+  "lang": "fi",
+  "fonts": {
+   "body": "Inter",
+   "#thread": "Inter",
+   ".composer": "Inter",
+   ".start": "Inter",
+   ".side-card, .side": "Inter"
+  },
+  "text": "DNA\nTietoturva-avustaja\nPrototyyppi · ei virallinen neuvo\nFI\nAvustaja\n\nHei! Kerro, mikä viestissä, puhelussa tai linkissä epäilyttää, niin sanon, mitä kannattaa tehdä seuraavaksi.\n\nSinä\n\nNopea kysymys: Kirjautuminen Espanjasta Oma-tililleni? Onko joku murtautunut?\n\nSähköposti lähettäjältä noreply@operator.invalid · 17:19\n\nOma-tilillesi kirjauduttiin uudelta laitteelta (Espanja, Chrome/Windows) tänään klo 14.12. Jos se et ollut sinä, vaihda salasana Oma-palvelussa.\n\nAvustaja\n\nOlitko sinä itse kirjautunut Oma-tilillesi Espanjasta tänään klo 14.12?\n\nSinä\n\nTuli täysin yllätyksenä. En ole kirjautunut Espanjasta.\n\nSallit: Viimeaikaiset kirjautumiset\nTOIMI HETI\nVaihda salasana ja ota käyttöön kaksivaiheinen tunnistautuminen\n\nKirjautumistietosi vahvistavat, että Oma-tilillesi on kirjauduttu tänään Espanjasta tuntemattomalla laitteella.\n\nVaihda Oma-tilin salasana luotettavalla laitteella Oma-palvelun kautta.\nKirjaudu ulos kaikista muista laitteista ja istunnoista.\nOta käyttöön kirjautumisen vahvistus puhelimella.\nTarkista tilaustiedot ja laskutustiedot mahdollisten muutosten varalta.\nOdota turvatiimin yhteydenottoa ja vastaa siihen.\nPuhu tietoturva-asiantuntijan kanssa\nMiksi tämä neuvo?",
+  "name": "03_consent_receipt_allow_390",
+  "note": "",
+  "english_hints": [],
+  "overflow": false,
+  "covered": false,
+  "console": []
+ },
+ {
+  "lang": "fi",
+  "fonts": {
+   "body": "Inter",
+   "#thread": "Inter",
+   ".composer": "Inter",
+   ".start": "Inter",
+   ".side-card, .side": "Inter"
+  },
+  "docScrollW": 390,
+  "docClientW": 390,
+  "scrollH": 1341,
+  "scrollClientH": 716,
+  "scrollTop": 625,
+  "composerTop": 777,
+  "lastBottom": 757,
+  "titleClipped": false,
+  "protoClipped": false,
+  "items": 7,
+  "itemTypes": [
+   "item item-bot",
+   "item item-user",
+   "item item-user item-attachment",
+   "item item-bot",
+   "item item-user",
+   "item item-receipt",
+   "item item-stretch"
+  ],
+  "dialogs": [],
+  "text": "Avustaja\n\nHei! Kerro, mikä viestissä, puhelussa tai linkissä epäilyttää, niin sanon, mitä kannattaa tehdä seuraavaksi.\n\nSinä\n\nNopea kysymys: Kirjautuminen Espanjasta Oma-tililleni? Onko joku murtautunut?\n\nSähköposti lähettäjältä noreply@operator.invalid · 17:19\n\nOma-tilillesi kirjauduttiin uudelta laitteelta (Espanja, Chrome/Windows) tänään klo 14.12. Jos se et ollut sinä, vaihda salasana Oma-palvelussa.\n\nAvustaja\n\nOletko itse tai joku työntekijäsi kirjautunut Oma-tiliin Espanjasta, vai tuliko kirjautuminen sinulle täysin yllätyksenä?\n\nSinä\n\nTuli täysin yllätyksenä. En ole kirjautunut Espanjasta.\n\nEt sallinut: Viimeaikaiset kirjautumiset\nTOIMI TÄNÄÄN\nVaihda salasana ja ota vahvempi kirjautuminen käyttöön\n\nÄlä käytä viestin linkkejä äläkä vastaa siihen.\n\nÄlä klikkaa viestin linkkejä äläkä vastaa viestiin.\nKirjaudu Oma-palveluun sovelluksella tai itse kirjoittamallasi osoitteella.\nVaihda salasana ja laita kaksivaiheinen vahvistus päälle.\nKirjaa ulos laitteet, joita et tunnista.\nSoita operaattorin asiakaspalveluun tuttuun numeroon ja pyydä tarkistamaan kirjautumiset.\nPuhu tietoturva-asiantuntijan kanssa\nMiksi tämä neuvo?",
+  "name": "03_consent_receipt_deny_390",
+  "note": "",
+  "console": [],
+  "english_hints": [],
+  "overflow": false,
+  "covered": false
+ },
+ {
+  "lang": "fi",
+  "fonts": {
+   "body": "Inter",
+   "#thread": "Inter",
+   ".composer": "Inter",
+   ".start": "Inter",
+   ".side-card, .side": "Inter"
+  },
+  "docScrollW": 390,
+  "docClientW": 390,
+  "scrollH": 924,
+  "scrollClientH": 716,
+  "scrollTop": 208,
+  "composerTop": 777,
+  "lastBottom": 757,
+  "titleClipped": false,
+  "protoClipped": false,
+  "items": 4,
+  "itemTypes": [
+   "item item-bot",
+   "item item-user",
+   "item item-user item-attachment",
+   "item item-stretch"
+  ],
+  "dialogs": [],
+  "text": "Avustaja\n\nHei! Kerro, mikä viestissä, puhelussa tai linkissä epäilyttää, niin sanon, mitä kannattaa tehdä seuraavaksi.\n\nSinä\n\nTämä huolestuttaa minua. Pitääkö tähän pankin viestiin reagoida? Siinä ei ole linkkiä. Mitä tässä kannattaa tehdä?\n\nTekstiviesti lähettäjältä LUMIPANKKI · 09:26\n\nLumipankki: Sinulle on uusi viesti verkkopankissa. Lue se kirjautumalla pankin sovellukseen tai verkkopankkiin tavalliseen tapaan.\n\nEI TOIMENPITEITÄ\nVaikuttaa aidolta – ei toimenpiteitä\n\nTämä viesti näyttää tavalliselta pankin ilmoitukselta.\n\nÄlä vastaa viestiin äläkä välitä sitä eteenpäin.\nAvaa pankin sovellus itse puhelimen valikosta ja tarkista viestit sieltä.\nJos sovelluksessa ei näy uutta viestiä, jätä asia sikseen.\nJos saat jatkossa linkin tai koodipyynnön, älä kirjaudu äläkä anna koodia.\nMiksi tämä neuvo?",
+  "name": "05_benign_final_390",
+  "note": "",
+  "console": [],
+  "english_hints": [],
+  "overflow": false,
+  "covered": false
+ },
+ {
+  "lang": "sv",
+  "fonts": {
+   "body": "Inter",
+   "#thread": "Inter",
+   ".composer": "Inter",
+   ".start": "Inter",
+   ".side-card, .side": "Inter"
+  },
+  "docScrollW": 390,
+  "docClientW": 390,
+  "scrollH": 716,
+  "scrollClientH": 716,
+  "scrollTop": 0,
+  "composerTop": 777,
+  "lastBottom": 190,
+  "titleClipped": false,
+  "protoClipped": false,
+  "items": 1,
+  "itemTypes": [
+   "item item-bot"
+  ],
+  "dialogs": [
+   "attach-sheet"
+  ],
+  "text": "Assistenten\n\nHej! Berätta vad som känns fel med ett sms, ett samtal eller en länk, så säger jag vad du bör göra härnäst.\n\nPrivat\nFöretag\n\nEXEMPEL\n\nSms från banken\nJag klickade på en länk\nEtt samtal från ”supporten”\nIngen täckning efter ett eSIM-sms\nLeverantören bytte kontonummer",
+  "name": "06_attach_sheet_sv_390",
+  "note": "",
+  "console": [],
+  "english_hints": [],
+  "overflow": false,
+  "covered": false
+ },
+ {
+  "lang": "sv",
+  "fonts": {
+   "body": "Inter",
+   "#thread": "Inter",
+   ".composer": "Inter",
+   ".start": "Inter",
+   ".side-card, .side": "Inter"
+  },
+  "docScrollW": 390,
+  "docClientW": 390,
+  "scrollH": 716,
+  "scrollClientH": 716,
+  "scrollTop": 0,
+  "composerTop": 777,
+  "lastBottom": 190,
+  "titleClipped": false,
+  "protoClipped": false,
+  "items": 1,
+  "itemTypes": [
+   "item item-bot"
+  ],
+  "dialogs": [],
+  "text": "Assistenten\n\nHej! Berätta vad som känns fel med ett sms, ett samtal eller en länk, så säger jag vad du bör göra härnäst.\n\nSms från DNA\nDitt abonnemang förnyas i dag. Betala 2,90 € här: https://dna-lasku.example/pay\nTa bort bilagan\nPrivat\nFöretag\n\nEXEMPEL\n\nSms från banken\nJag klickade på en länk\nEtt samtal från ”supporten”\nIngen täckning efter ett eSIM-sms\nLeverantören bytte kontonummer",
+  "name": "06_pending_attachment_sv_390",
+  "note": "",
+  "console": [],
+  "english_hints": [],
+  "overflow": false,
+  "covered": false
+ },
+ {
+  "lang": "sv",
+  "fonts": {
+   "body": "Inter",
+   "#thread": "Inter",
+   ".composer": "Inter",
+   ".start": "Inter",
+   ".side-card, .side": "Inter"
+  },
+  "docScrollW": 390,
+  "docClientW": 390,
+  "scrollH": 716,
+  "scrollClientH": 716,
+  "scrollTop": 0,
+  "composerTop": 777,
+  "lastBottom": 507,
+  "titleClipped": false,
+  "protoClipped": false,
+  "items": 4,
+  "itemTypes": [
+   "item item-bot",
+   "item item-user",
+   "item item-user item-attachment",
+   "item item-bot"
+  ],
+  "dialogs": [],
+  "text": "Assistenten\n\nHej! Berätta vad som känns fel med ett sms, ett samtal eller en länk, så säger jag vad du bör göra härnäst.\n\nDu\n\nJag fick det här sms:et och undrar om det är äkta.\n\nSms från DNA\n\nDitt abonnemang förnyas i dag. Betala 2,90 € här: https://dna-lasku.example/pay\n\nAssistenten\nKontrollerar…\n4 s",
+  "name": "06_checking_indicator_sv_390",
+  "note": "start request held 9 s by browser latency; indicator shows 4 s",
+  "console": [],
+  "english_hints": [],
+  "overflow": false,
+  "covered": false
+ },
+ {
+  "lang": "sv",
+  "fonts": {
+   "body": "Inter",
+   "#thread": "Inter",
+   ".composer": "Inter",
+   ".start": "Inter",
+   ".side-card, .side": "Inter"
+  },
+  "docScrollW": 390,
+  "docClientW": 390,
+  "scrollH": 716,
+  "scrollClientH": 716,
+  "scrollTop": 0,
+  "composerTop": 777,
+  "lastBottom": 687,
+  "titleClipped": false,
+  "protoClipped": false,
+  "items": 4,
+  "itemTypes": [
+   "item item-bot enter",
+   "item item-user enter",
+   "item item-user item-attachment enter",
+   "item item-bot enter"
+  ],
+  "dialogs": [],
+  "text": "DNA\nSäkerhetsassistent\nPrototyp · inte officiella råd\nSV\nAssistenten\n\nHej! Berätta vad som känns fel med ett sms, ett samtal eller en länk, så säger jag vad du bör göra härnäst.\n\nDu\n\nJag fick det här sms:et och undrar om det är äkta.\n\nSms från DNA · 21:46\n\nDitt abonnemang förnyas i dag. Betala 2,90 € här: https://dna-lasku.example/pay\n\nAssistenten\n\nHar du angett några kort- eller betaluppgifter efter att du fick sms:et?\n\nJa, jag skrev in kortuppgifterna\nNej, jag skrev inte in några kortuppgifter\nVet inte",
+  "name": "06_free_text_sv_attachment_390",
+  "note": "fixture: the recorded Swedish question replayed without a model call",
+  "console": [],
+  "english_hints": [],
+  "overflow": false,
+  "covered": false
+ },
+ {
+  "lang": "fi",
+  "fonts": {
+   "body": "Inter",
+   "#thread": "Inter",
+   ".composer": "Inter",
+   ".start": "Inter",
+   ".side-card, .side": "Inter"
+  },
+  "docScrollW": 1440,
+  "docClientW": 1440,
+  "scrollH": 1023,
+  "scrollClientH": 768,
+  "scrollTop": 255,
+  "composerTop": 833,
+  "lastBottom": 809,
+  "titleClipped": false,
+  "protoClipped": false,
+  "items": 7,
+  "itemTypes": [
+   "item item-bot",
+   "item item-user",
+   "item item-user item-attachment",
+   "item item-bot",
+   "item item-user",
+   "item item-receipt",
+   "item item-stretch"
+  ],
+  "dialogs": [],
+  "text": "Avustaja\n\nHei! Kerro, mikä viestissä, puhelussa tai linkissä epäilyttää, niin sanon, mitä kannattaa tehdä seuraavaksi.\n\nSinä\n\nNopea kysymys: Kirjautuminen Espanjasta Oma-tililleni? Onko joku murtautunut?\n\nSähköposti lähettäjältä noreply@operator.invalid · 17:19\n\nOma-tilillesi kirjauduttiin uudelta laitteelta (Espanja, Chrome/Windows) tänään klo 14.12. Jos se et ollut sinä, vaihda salasana Oma-palvelussa.\n\nAvustaja\n\nOletko itse tai joku työntekijäsi kirjautunut Oma-tiliin Espanjasta, vai tuliko kirjautuminen sinulle täysin yllätyksenä?\n\nSinä\n\nTuli täysin yllätyksenä. En ole kirjautunut Espanjasta.\n\nSallit: Viimeaikaiset kirjautumiset\nTOIMI HETI\nVaihda salasana ja ota vahvempi kirjautuminen käyttöön\n\nKirjautuminen on oikeasti tapahtunut: Oma-tilillesi kirjauduttiin tänään uudelta laitteelta Espanjasta.\n\nVaihda Oma-tilin salasana luotetulla laitteella\nLaita kaksivaiheinen vahvistus päälle\nKirjaudu ulos kaikista muista istunnoista\nTarkista tilin yhteystiedot, tilaukset ja käyttäjät\nVaihda sama salasana muualta, missä sitä on käytetty\nPuhu tietoturva-asiantuntijan kanssa\nMiksi tämä neuvo?",
+  "name": "04_answer_1440",
+  "note": "",
+  "console": [],
+  "english_hints": [],
+  "overflow": false,
+  "covered": false
+ },
+ {
+  "docScrollW": 390,
+  "docClientW": 390,
+  "scrollH": 1572,
+  "scrollClientH": 1572,
+  "scrollTop": 0,
+  "composerTop": 1633,
+  "lastBottom": 1532,
+  "titleClipped": false,
+  "protoClipped": false,
+  "items": 7,
+  "itemTypes": [
+   "item item-bot enter",
+   "item item-user enter",
+   "item item-user item-attachment enter",
+   "item item-bot",
+   "item item-user enter",
+   "item item-receipt",
+   "item item-stretch enter"
+  ],
+  "dialogs": [],
+  "lang": "fi",
+  "fonts": {
+   "body": "Inter",
+   "#thread": "Inter",
+   ".composer": "Inter",
+   ".start": "Inter",
+   ".side-card, .side": "Inter"
+  },
+  "text": "DNA\nTietoturva-avustaja\nPrototyyppi · ei virallinen neuvo\nFI\nAvustaja\n\nHei! Kerro, mikä viestissä, puhelussa tai linkissä epäilyttää, niin sanon, mitä kannattaa tehdä seuraavaksi.\n\nSinä\n\nNopea kysymys: Kirjautuminen Espanjasta Oma-tililleni? Onko joku murtautunut?\n\nSähköposti lähettäjältä noreply@operator.invalid · 17:19\n\nOma-tilillesi kirjauduttiin uudelta laitteelta (Espanja, Chrome/Windows) tänään klo 14.12. Jos se et ollut sinä, vaihda salasana Oma-palvelussa.\n\nAvustaja\n\nOlitko itse kirjautunut Oma-tiliisi Espanjasta tänään kello 14.12?\n\nSinä\n\nEn ollut minä. Voisitko tarkistaa, onko tililläni tai liittymässäni tapahtunut jotain outoa?\n\nEt sallinut: Viimeaikaiset kirjautumiset, Liittymän viimeisimmät muutokset\nTOIMI HETI\nVaihda salasana ja ota käyttöön kaksivaiheinen tunnistautuminen\n\nKoska et ollut se sinä, jonkun muun on täytynyt tietää Oma-tilisi salasana.\n\nVaihda Oma-tilin salasana luotetulla laitteella.\nKirjaudu ulos kaikista muista istunnoista.\nOta yhteyttä operaattorin tukeen ja pyydä tarkistamaan tilin tapahtumat.\nTarkista yrityksen tilaukset ja laskut.\nVaihda sama salasana muista palveluista, joissa käytit sitä.\n\nToimi heti. Älä mene tilille sähköpostin linkin kautta, vaan avaa Oma-palvelu itse kirjoittamalla osoite. Jos et saa salasanaa vaihdettua tai tilillä näkyy muutoksia, joita et tehnyt, ota heti yhteyttä operaattorin turvatukeen. Säilytä viesti ja ota siitä kuvakaappaus todisteeksi.\n\nPuhu tietoturva-asiantuntijan kanssa\nMiksi tämä neuvo?",
+  "name": "08_consent_refused_390",
+  "note": "390x1700 to fit the whole card set; fixture built from the recorded conversation; consent refused, both requested items listed",
+  "english_hints": [],
+  "overflow": false,
+  "covered": false,
+  "console": [],
+  "receipt": "Et sallinut: Viimeaikaiset kirjautumiset, Liittymän viimeisimmät muutokset",
+  "visibility_sheet": "JAOIT\nSähköposti lähettäjältä noreply@operator.invalid · 17:19\nLUVAT\nViimeaikaiset kirjautumiset · ei käytetty\nLiittymän viimeisimmät muutokset · ei käytetty\nEN KOSKAAN PYYDÄ\n\nSalasanat, korttinumerot ja koodit.",
+  "why": "Kerroit: \"En ollut minä. Voisitko tarkistaa, onko tililläni tai liittymässäni tapahtunut jotain outoa?\"\nLuin lähettämäsi viestin.\nPerustuu ohjeeseen: Kun tunnukset ovat paljastuneet\nAvustajan ohje, ei virallinen neuvo.",
+  "why_claims_refused": false
+ },
+ {
+  "docScrollW": 390,
+  "docClientW": 390,
+  "scrollH": 1442,
+  "scrollClientH": 716,
+  "scrollTop": 227,
+  "composerTop": 777,
+  "lastBottom": 1256,
+  "titleClipped": false,
+  "protoClipped": false,
+  "items": 7,
+  "itemTypes": [
+   "item item-bot",
+   "item item-user",
+   "item item-user item-attachment",
+   "item item-bot",
+   "item item-user",
+   "item item-receipt",
+   "item item-stretch"
+  ],
+  "dialogs": [],
+  "lang": "fi",
+  "fonts": {
+   "body": "Inter",
+   "#thread": "Inter",
+   ".composer": "Inter",
+   ".start": "Inter",
+   ".side-card, .side": "Inter"
+  },
+  "text": "DNA\nTietoturva-avustaja\nPrototyyppi · ei virallinen neuvo\nFI\nAvustaja\n\nHei! Kerro, mikä viestissä, puhelussa tai linkissä epäilyttää, niin sanon, mitä kannattaa tehdä seuraavaksi.\n\nSinä\n\nNopea kysymys: Kirjautuminen Espanjasta Oma-tililleni? Onko joku murtautunut?\n\nSähköposti lähettäjältä noreply@operator.invalid · 17:19\n\nOma-tilillesi kirjauduttiin uudelta laitteelta (Espanja, Chrome/Windows) tänään klo 14.12. Jos se et ollut sinä, vaihda salasana Oma-palvelussa.\n\nAvustaja\n\nOlitko itse kirjautunut Oma-tiliisi Espanjasta tänään kello 14.12?\n\nSinä\n\nEn, en tehnyt sitä itse\n\nSallit: Viimeaikaiset kirjautumiset\nTOIMI HETI\nVaihda salasana ja ota käyttöön kaksivaiheinen tunnistautuminen\n\nTietojemme mukaan Oma-tilillesi kirjauduttiin tänään kello 14.12 Espanjasta uudella laitteella, etkä ollut se sinä.\n\nVaihda Oma-tilin salasana luotetulla laitteella.\nKirjaudu ulos kaikista muista istunnoista.\nTarkista tilin yhteystiedot ja viimeisimmät muutokset.\nOta yhteyttä turvatiimiin kirjautumisen selvittämiseksi.\n\nToimi heti. Älä mene tilille sähköpostin linkin kautta, vaan avaa Oma-palvelu itse kirjoittamalla osoite. Tarkista myös, ettei tilillesi ole lisätty uusia maksunsaajia. Jos et saa salasanaa vaihdettua tai tilillä näkyy muutoksia, joita et tehnyt, ota heti yhteyttä operaattorin turvatukeen. Säilytä viesti ja ota siitä kuvakaappaus todisteeksi.\n\nPuhu tietoturva-asiantuntijan kanssa\nMiksi tämä neuvo?",
+  "name": "09_mobile_scrolled_390",
+  "note": "fixture: touch drag 200->620 px mid-thread, not at the end; the composer is pinned and the drag moved the thread",
+  "english_hints": [],
+  "overflow": false,
+  "covered": true,
+  "console": [],
+  "midway": true,
+  "scrollTopAtEnd": 726,
+  "drag": {
+   "from": 200,
+   "to": 620,
+   "pointer": "touch"
+  }
+ }
+]

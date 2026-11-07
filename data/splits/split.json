@@ -1,0 +1,48 @@
+{
+  "attempt": 0,
+  "counts": {
+    "holdout": {
+      "benign_controls": 12,
+      "by_journey": {
+        "breach_notice": 24,
+        "clicked_link": 12,
+        "smb_incident": 24,
+        "suspicious_call": 12,
+        "suspicious_message": 24
+      },
+      "cases": 96,
+      "twin_cases": 12
+    },
+    "tune": {
+      "benign_controls": 120,
+      "by_journey": {
+        "breach_notice": 96,
+        "clicked_link": 72,
+        "smb_incident": 132,
+        "suspicious_call": 60,
+        "suspicious_message": 132
+      },
+      "cases": 492,
+      "twin_cases": 96
+    }
+  },
+  "family_count": 49,
+  "holdout_families": [
+    "BR-MFA-FATIGUE",
+    "BR-MONITORING-APP",
+    "CA-GENUINE-BANK-CALL",
+    "CL-BANK-CREDS-ENTERED",
+    "SB-ATTACHMENT-TWIN",
+    "SB-RANSOMWARE",
+    "SM-GENUINE-BANK-NOTICE",
+    "SM-PRIZE-EMAIL"
+  ],
+  "quotas": {
+    "breach_notice": 2,
+    "clicked_link": 1,
+    "smb_incident": 2,
+    "suspicious_call": 1,
+    "suspicious_message": 2
+  },
+  "seed": 20261107
+}

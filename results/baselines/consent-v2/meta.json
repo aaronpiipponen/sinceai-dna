@@ -1,0 +1,30 @@
+{
+  "commit": "d2c1d91",
+  "date": "2026-11-07T14:16:29Z",
+  "model": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+  "name": "consent-v2",
+  "sets": {
+    "journeys": {
+      "cache_hits": 0,
+      "cache_misses": 11,
+      "cache_only": false,
+      "commit": "d2c1d91",
+      "date": "2026-11-07T14:16:29Z",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "temperature": 0,
+      "thinking": "on"
+    },
+    "own": {
+      "cache_hits": 32,
+      "cache_misses": 0,
+      "cache_only": false,
+      "commit": "d2c1d91",
+      "date": "2026-11-07T14:16:29Z",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "temperature": 0,
+      "thinking": "on"
+    }
+  },
+  "temperature": 0,
+  "thinking": "on"
+}

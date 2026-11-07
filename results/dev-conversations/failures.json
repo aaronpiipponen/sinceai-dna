@@ -1,0 +1,23 @@
+{
+  "harness_failures": [],
+  "call_errors": [],
+  "fallback_cases": [],
+  "evaluator_failure_cases": [
+    {
+      "case_id": "DSA-D-0240",
+      "journey": "clicked_link",
+      "type": "did_not_ask_decisive",
+      "topics": [
+        "credentials_entered"
+      ],
+      "asked_too_many": false
+    },
+    {
+      "case_id": "DSA-D-0401",
+      "journey": "breach_notice",
+      "type": "no_substantive_advice",
+      "words": 133
+    }
+  ],
+  "note": "one conversation per case; no case repeated and no transport retry made; a call error is reported, not replayed"
+}

@@ -1,0 +1,469 @@
+/* Thread components shared by the demo and the lab.
+ *
+ * Load order: tokens.css (tokens, font, svg.icon base) then thread.css.
+ * Colours, radii and spacing follow docs/mockups/demo.html. Nothing here uses
+ * a style attribute, so the pages stay CSP `style-src 'self'` clean.
+ */
+
+.thread {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 14px 20px;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  /* Not a scroll container: the page decides which element scrolls (the demo
+   * uses #scroll, the lab uses #thread). An overflow:auto box that is exactly
+   * as tall as its content still swallows touch pans on a phone, so the
+   * thread itself must stay scroll-transparent. */
+}
+
+.item { display: flex; flex-direction: column; min-width: 0; }
+.item-bot { align-items: flex-start; }
+.item-user { align-items: flex-end; }
+.item-stretch { align-items: stretch; }
+.item-receipt { align-items: flex-start; }
+
+/* --- "who" labels, as in the mockup ------------------------------------- */
+
+.who {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0 6px 4px;
+}
+.who-user { text-align: right; }
+
+/* --- bubbles ------------------------------------------------------------ */
+
+.bubble {
+  max-width: 86%;
+  padding: 10px 14px;
+  border-radius: 18px;
+  overflow-wrap: anywhere;
+}
+.bubble p { margin: 0; }
+.bubble p + p { margin-top: 8px; }
+
+.bubble-bot {
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-bottom-left-radius: 6px;
+  box-shadow: var(--shadow-tight);
+}
+.bubble-user {
+  align-self: flex-end;
+  background: var(--accent);
+  color: #fff;
+  border-bottom-right-radius: 6px;
+}
+
+/* --- attachment (the forwarded item the user is asking about) ----------- */
+
+.attachment {
+  width: 86%;
+  max-width: 86%;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  box-shadow: var(--shadow-tight);
+  overflow: hidden;
+}
+
+.att-head {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+}
+.att-head-text { min-width: 0; overflow-wrap: anywhere; }
+.att-head b { color: var(--text); font-weight: 600; }
+.att-time { white-space: nowrap; }
+
+.att-body {
+  padding: 10px 12px;
+  font-size: 15px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.att-check {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+  margin: 0 12px 12px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.35;
+  background: var(--neutral-soft);
+  color: var(--muted);
+}
+.att-check-warn { background: var(--warn-soft); color: var(--warn); }
+.att-check-ok { background: var(--safe-soft); color: var(--safe); }
+.att-check + .att-check { margin-top: -6px; }
+
+/* --- quick replies ------------------------------------------------------ */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.chip {
+  min-height: var(--tap);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  background: var(--surface);
+  border-radius: var(--radius-pill);
+  padding: 8px 14px;
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+}
+.chip:hover { background: var(--accent-soft); }
+
+/* --- checking indicator ------------------------------------------------- */
+
+.bubble-checking {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+}
+.dots { display: inline-flex; gap: 3px; align-items: center; }
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: dot-pulse 1.2s infinite ease-in-out;
+}
+.dot:nth-child(2) { animation-delay: .15s; }
+.dot:nth-child(3) { animation-delay: .3s; }
+.checking-elapsed { font-variant-numeric: tabular-nums; }
+
+@keyframes dot-pulse {
+  0%, 60%, 100% { opacity: .25; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-2px); }
+}
+
+/* --- consent card ------------------------------------------------------- */
+
+.consent {
+  width: 92%;
+  max-width: 92%;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: var(--shadow);
+}
+
+.consent-title {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.consent-title .icon { color: var(--accent); }
+
+.consent-purpose { margin: 0 0 10px; color: var(--muted); font-size: 15px; }
+
+.consent-items {
+  margin: 0 0 12px;
+  padding-left: 20px;
+  font-size: 15px;
+}
+
+.row { display: flex; gap: 8px; }
+
+.btn {
+  flex: 1;
+  min-height: 46px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  border: 1px solid var(--accent);
+  cursor: pointer;
+  padding: 0 12px;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: #a80066; }
+.btn-secondary { background: var(--surface); color: var(--accent); }
+.btn-secondary:hover { background: var(--accent-soft); }
+
+.fine { font-size: 13px; color: var(--muted); margin: 10px 0 0; }
+
+/* --- receipt ------------------------------------------------------------ */
+
+.receipt {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  max-width: 92%;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  color: var(--muted);
+}
+.receipt-allowed { color: var(--safe); border-color: #cfe9da; background: var(--safe-soft); }
+.receipt-refused { color: var(--muted); }
+
+/* --- answer card -------------------------------------------------------- */
+
+.answer {
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-left: 6px solid var(--line-strong);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+.answer-immediate { border-left-color: var(--act-now); }
+.answer-today { border-left-color: var(--act-now); }
+.answer-routine { border-left-color: var(--muted); }
+.answer-none { border-left-color: var(--safe); }
+
+.urgency {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: var(--neutral-soft);
+  color: var(--muted);
+}
+.urgency-immediate, .urgency-today { background: var(--act-now-soft); color: var(--act-now); }
+.urgency-routine { background: var(--neutral-soft); color: var(--muted); }
+.urgency-none { background: var(--safe-soft); color: var(--safe); }
+
+.answer-headline {
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 700;
+  margin: 10px 0 6px;
+  overflow-wrap: anywhere;
+}
+
+.answer-reason { color: var(--muted); margin: 0 0 12px; }
+
+.answer-steps { margin: 0 0 14px; padding-left: 22px; }
+.answer-steps li { margin: 6px 0; overflow-wrap: anywhere; }
+
+.answer-more { color: var(--muted); margin: 0 0 14px; overflow-wrap: anywhere; }
+.answer-more-rest { margin-top: -8px; }
+.more-toggle {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  margin: -4px 0 10px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.more-toggle:hover { color: var(--text); }
+
+.expert {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 48px;
+  border-radius: var(--radius-sm);
+  border: 0;
+  background: var(--text);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0 14px;
+}
+.expert:hover { background: #2a3050; }
+
+.expert-sent {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 14px;
+  border-radius: var(--radius-sm);
+  background: var(--safe-soft);
+  color: var(--safe);
+  font-weight: 600;
+}
+
+/* --- why expander ------------------------------------------------------- */
+
+.why {
+  margin-top: 14px;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+
+.why-summary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--tap);
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--muted);
+  list-style: none;
+}
+.why-summary::-webkit-details-marker { display: none; }
+.why-summary .icon { transition: transform .15s ease; }
+.why[open] .why-summary .icon { transform: rotate(180deg); }
+
+.why-body { font-size: 14px; color: var(--muted); padding-top: 4px; }
+.why-list { margin: 0 0 10px; padding-left: 18px; }
+.why-list li { margin: 4px 0; }
+.why-sources { margin: 0 0 6px; }
+.why-note { margin: 0; font-size: 13px; }
+
+/* --- handoff ------------------------------------------------------------ */
+
+.handoff {
+  background: var(--surface);
+  border: 1px dashed var(--muted);
+  border-radius: var(--radius);
+  padding: 14px;
+  font-size: 14px;
+}
+
+.handoff-head { display: flex; align-items: baseline; gap: 8px; }
+.handoff-title { margin: 0; font-size: 15px; font-weight: 600; }
+.handoff-demo { font-size: 12px; color: var(--muted); }
+.handoff-target { margin: 6px 0 10px; color: var(--muted); }
+
+.handoff-fields {
+  display: grid;
+  grid-template-columns: minmax(88px, 110px) 1fr;
+  gap: 4px 10px;
+  margin: 0;
+}
+.handoff-fields dt { color: var(--muted); }
+.handoff-fields dd { margin: 0; overflow-wrap: anywhere; }
+
+.handoff-confirm {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin: 12px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  color: var(--safe);
+}
+
+/* Placeholder while the model-written brief is pending or after it failed:
+ * the same dashed box as the card so the thread does not jump when the card
+ * arrives under the same key. */
+.handoff-wait-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.handoff-number { font-variant-numeric: tabular-nums; }
+
+/* --- notice ------------------------------------------------------------- */
+
+.notice-actions { display: flex; margin-top: 8px; }
+
+/* --- error -------------------------------------------------------------- */
+
+.thread-error {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  max-width: 92%;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid #f0d5d1;
+  background: #fdf1ef;
+  color: #8a2b1c;
+  font-size: 14px;
+}
+.chip-retry {
+  min-height: 36px;
+  padding: 4px 12px;
+  border-color: #8a2b1c;
+  color: #8a2b1c;
+  background: transparent;
+  font-size: 14px;
+}
+
+/* --- motion ------------------------------------------------------------- */
+
+/* Everything fades or slides; nothing snaps. JS adds `.enter` to new items and
+ * `.update` to a rebuilt one, and animates a replacement with the Web
+ * Animations API (height + a fading clone of the old node). The blocks below
+ * only run when the user has not asked for reduced motion. */
+
+.swap-ghost {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .thread, .scroll { scroll-behavior: smooth; }
+
+  .item.enter { animation: item-in .22s cubic-bezier(.16, 1, .3, 1) both; animation-delay: var(--enter-delay, 0ms); }
+  .item.update { animation: item-fade .16s ease both; }
+
+  .chips .chip { animation: chip-in .2s cubic-bezier(.16, 1, .3, 1) both; }
+  .chips .chip:nth-child(2) { animation-delay: .035s; }
+  .chips .chip:nth-child(3) { animation-delay: .07s; }
+  .chips .chip:nth-child(4) { animation-delay: .105s; }
+
+  .consent, .receipt, .answer, .handoff, .why { transition: height .23s cubic-bezier(.16, 1, .3, 1), opacity .18s ease; }
+  .expert, .expert-sent { transition: opacity .16s ease, transform .16s ease, background-color .16s ease; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot { animation: none; opacity: 1; }
+}
+
+@keyframes item-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes item-fade {
+  from { opacity: .35; }
+  to { opacity: 1; }
+}
+
+@keyframes chip-in {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (min-width: 640px) {
+  .thread { padding: 20px 20px 24px; }
+  .bubble { max-width: 78%; }
+  .attachment, .consent, .receipt, .thread-error { max-width: 78%; }
+}

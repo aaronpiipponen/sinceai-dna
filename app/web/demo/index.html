@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>Security assistant</title>
+<link rel="icon" href="/demo/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/shared/tokens.css">
+<link rel="stylesheet" href="/shared/thread.css">
+<link rel="stylesheet" href="/demo/demo.css">
+<script src="/shared/icons.js" defer></script>
+<script src="/shared/thread.js" defer></script>
+<script src="/demo/demo.js" defer></script>
+</head>
+<body>
+<div class="app">
+  <header class="appbar">
+    <span class="wordmark" aria-hidden="true">DNA</span>
+    <div class="titles">
+      <h1 id="app-title">Security assistant</h1>
+      <span class="proto" id="app-proto">Prototype</span>
+    </div>
+    <div class="appbar-actions">
+      <button id="info-button" class="iconbtn info-button" type="button">
+        <span class="icon-slot" data-icon="info"></span>
+      </button>
+      <div class="menu-wrap">
+        <button id="lang-button" class="textbtn" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="icon-slot" data-icon="globe"></span>
+          <span id="lang-code">EN</span>
+          <span class="icon-slot" data-icon="chevron-down"></span>
+        </button>
+        <div id="lang-menu" class="menu" role="menu" hidden>
+          <button class="menu-item" type="button" role="menuitem" data-lang="fi">Suomi</button>
+          <button class="menu-item" type="button" role="menuitem" data-lang="en">English</button>
+          <button class="menu-item" type="button" role="menuitem" data-lang="sv">Svenska</button>
+        </div>
+      </div>
+      <button id="new-chat" class="new-chat" type="button" aria-label="New chat" title="New chat">
+        <span class="icon-slot" data-icon="new-chat"></span>
+        <span id="new-chat-label" class="new-chat-label">New chat</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <div class="column">
+      <div id="start-top" class="start-collapse">
+        <div class="start-clip">
+          <section class="start start-controls">
+            <div class="start-tools">
+              <div id="audience-switch" class="switch" role="group">
+                <span class="switch-thumb" aria-hidden="true"></span>
+                <button class="switch-button" type="button" data-audience="consumer" aria-pressed="true">Personal</button>
+                <button class="switch-button" type="button" data-audience="business" aria-pressed="false">Business</button>
+              </div>
+              <button id="examples-button" class="examples-button" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="examples-menu">
+                <span id="examples-label">Examples</span>
+                <span class="icon-slot" data-icon="chevron-down"></span>
+              </button>
+            </div>
+
+            <div id="examples-reveal" class="examples-reveal" data-open="false">
+              <div class="examples-clip">
+                <div id="examples-menu" class="menu examples-menu" role="menu" aria-labelledby="examples-button" aria-hidden="true"></div>
+              </div>
+            </div>
+
+            <label class="careful-option" for="thinking-toggle">
+              <span class="careful-copy">
+                <span id="careful-title" class="careful-title">Check more carefully</span>
+                <span id="careful-hint" class="careful-hint">Each reply can take 25–60 seconds.</span>
+              </span>
+              <input class="careful-input" id="thinking-toggle" type="checkbox" role="switch" aria-labelledby="careful-title" aria-describedby="careful-hint">
+              <span class="careful-track" aria-hidden="true"></span>
+            </label>
+          </section>
+        </div>
+      </div>
+
+      <div id="scroll" class="scroll">
+        <div class="chat-inner">
+          <main id="thread" class="thread" aria-live="polite" aria-relevant="additions"></main>
+
+          <div id="start-attach" class="start-collapse">
+            <div class="start-clip">
+              <section class="start start-attach">
+                <section id="attach-card" class="attach-card" data-open="false" aria-labelledby="attach-title">
+                  <button id="attach-toggle" class="attach-toggle" type="button" aria-expanded="false" aria-controls="attach-reveal">
+                    <span class="attach-toggle-copy">
+                      <span id="attach-title" class="attach-toggle-title">Describe the message or call in more detail</span>
+                      <span id="attach-optional" class="attach-optional">Optional</span>
+                    </span>
+                    <span class="attach-chevron icon-slot" data-icon="chevron-down"></span>
+                  </button>
+
+                  <div id="attach-reveal" class="attach-reveal">
+                    <div class="attach-clip">
+                      <div class="attach-fields">
+                        <div class="field">
+                          <span id="attach-kind-label" class="field-label">Type</span>
+                          <div id="attach-kinds" class="segmented" role="group" aria-labelledby="attach-kind-label">
+                            <label class="segmented-option">
+                              <input type="radio" name="kind" value="sms" checked>
+                              <span class="segmented-face"><span class="icon-slot" data-icon="message"></span><span data-kind-label="sms">Text message</span></span>
+                            </label>
+                            <label class="segmented-option">
+                              <input type="radio" name="kind" value="email">
+                              <span class="segmented-face"><span class="icon-slot" data-icon="mail"></span><span data-kind-label="email">Email</span></span>
+                            </label>
+                            <label class="segmented-option">
+                              <input type="radio" name="kind" value="call">
+                              <span class="segmented-face"><span class="icon-slot" data-icon="phone"></span><span data-kind-label="call">Call</span></span>
+                            </label>
+                            <label class="segmented-option">
+                              <input type="radio" name="kind" value="letter">
+                              <span class="segmented-face"><span class="icon-slot" data-icon="letter"></span><span data-kind-label="letter">Letter</span></span>
+                            </label>
+                          </div>
+                        </div>
+
+                        <div class="field">
+                          <label id="attach-sender-label" class="field-label" for="attach-sender">Sender</label>
+                          <input id="attach-sender" class="field-input" type="text" maxlength="200" autocomplete="off">
+                        </div>
+
+                        <div class="field">
+                          <label id="attach-body-label" class="field-label" for="attach-body">Message text</label>
+                          <textarea id="attach-body" class="field-input field-textarea" rows="3" maxlength="4000"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="composer-wrap">
+        <form id="composer" class="composer" autocomplete="off" novalidate>
+          <textarea id="message-input" class="message-input" rows="1" maxlength="4000"></textarea>
+          <button id="send-button" class="send-button" type="submit">
+            <span class="icon-slot" data-icon="arrow-up"></span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <aside class="side">
+      <section id="help-card" class="side-card help-card" hidden>
+        <h2 id="help-title" class="side-title">What I can help with</h2>
+        <ul id="help-list" class="help-list"></ul>
+        <p id="help-business" class="help-business"></p>
+      </section>
+      <section class="side-card" aria-labelledby="side-title">
+        <h2 id="side-title" class="side-title">What I can see</h2>
+        <div id="side-body" class="visibility"></div>
+      </section>
+    </aside>
+  </div>
+</div>
+
+<dialog id="info-sheet" class="sheet" aria-labelledby="info-sheet-title">
+  <div class="sheet-head">
+    <h2 id="info-sheet-title" class="sheet-title">What I can see</h2>
+    <button class="iconbtn sheet-close" type="button" data-close="info-sheet">
+      <span class="icon-slot" data-icon="x"></span>
+    </button>
+  </div>
+  <div id="sheet-body" class="visibility sheet-body"></div>
+</dialog>
+</body>
+</html>
