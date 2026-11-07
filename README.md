@@ -12,6 +12,16 @@ https://youtu.be/i315VQ1MSSk
 
 Setup and run instructions are in app/README.md.
 
+## SCREENSHOTS
+
+The desktop start screen.
+
+![Desktop start screen with the audience switch, careful-check option and message form.](/docs/screenshots/demo/01_start_1440.png)
+
+A recorded expert handoff with the situation summary and queue priority.
+
+![Expert handoff brief showing the situation, advice, urgency and priority five of five.](/docs/screenshots/expert-handoff.png)
+
 ## THE PROBLEM
 
 Consumers and small businesses receive warnings such as "suspicious link" or "possible scam call". A warning names a risk but gives no next step, so people ignore it, panic or follow the wrong advice.
