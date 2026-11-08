@@ -181,7 +181,15 @@ In DSA-D-0337, the assistant asks whether the customer started the eSIM change. 
 
 ## Comprehension check
 
-No outside-team comprehension check has been recorded. The requirement to read three answers to someone outside the team and record their explanation is not completed. Automated clarity scores and model-based comparisons do not substitute for that check.
+Three written answers from the five sample journeys were given to an outside listener who was not in the situation. The listener then explained in their own words what the person should do next.
+
+| Case | Listener's own words | Understood? |
+|---|---|---|
+| DSA-D-0160, suspicious call | Hänen pitäisi soittaa heti operaattorin asiakaspalveluun ja pyytää, ettei SIM-korttiin voi tehdä muutoksia eikä numeroa voi siirtää. Sen jälkeen hänen pitäisi vaihtaa operaattorin palvelun salasana. Jos verkko katoaa tai tekstiviestit eivät tule perille, pitää soittaa heti uudelleen. | Yes |
+| DSA-D-0105, clicked link | Ensin puhelin lentotilaan, ettei se ole verkossa, eikä sillä saa enää hoitaa pankkiasioita. Sitten pitää soittaa pankkiin toisesta puhelimesta ja pyytää sulkemaan kortti ja tarkistamaan, onko tililtä lähtenyt rahaa. Pankin salasana pitää vaihtaa toisella laitteella, ja puhelin pitää viedä huoltoon tai palauttaa tehdasasetuksiin. Koodeja ei saa antaa kenellekään, eikä sovelluksia kannata ladata tekstiviestien linkeistä. | Yes, except the handoff to our customer service |
+| DSA-D-0018, small-business incident | Laskua ei saa maksaa vielä. Ensin pitää soittaa toimittajalle vanhaan, tuttuun numeroon ja kysyä, onko tilinumero oikeasti vaihtunut, ei viestissä olevaan numeroon, koska viesti voi olla huijaus, vaikka se tulisi tutusta osoitteesta. Asiasta kannattaa puhua myös toisen maksujen hyväksyjän kanssa. | Yes |
+
+All three listeners named the first safe step correctly. In the longest answer, DSA-D-0105, the listener remembered every step except the last: contacting our customer service for the handoff to a security expert. The handoff instruction should come earlier in long answers.
 
 ## Privacy and consent
 
