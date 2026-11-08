@@ -4,10 +4,6 @@ The assistant turns a description of a suspicious call, message or link, plus op
 
 The project answers the DNA Oyj challenge "Digital Security Assistant: What Should I Do Now?" at Since AI Hackathon 2026 in Turku. It is a prototype, and all case data is synthetic.
 
-## DEMO VIDEO
-
-https://youtu.be/i315VQ1MSSk
-
 ## RUNNING THE DEMO
 
 Setup and run instructions are in app/README.md.
